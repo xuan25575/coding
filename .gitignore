@@ -14,11 +14,6 @@
 *.class
 
 
-# Package Files #
-*.jar
-*.war
-
-
 # Generated files
 */bin/
 */gen/
