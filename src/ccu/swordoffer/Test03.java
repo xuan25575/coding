@@ -39,7 +39,7 @@ public class Test03 {
                 return true;
             }else if(matrix[row][col] > find){
                 col--;
-            }else {
+            }else{
                 row++;
             }
         }
