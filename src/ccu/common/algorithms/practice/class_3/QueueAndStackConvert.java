@@ -17,6 +17,8 @@ public class QueueAndStackConvert {
      * 思路： 使用两个栈，一个栈用push数据，一个栈用来pop
      * push操作： 把数据push到一个栈中
      * poll操作， 把push到栈的中的数据pop到另一个栈中。 使用该栈pop操作即可。
+     *
+     *
      */
     public static class TowStacksToQueue{
 
@@ -28,25 +30,39 @@ public class QueueAndStackConvert {
             popStack = new Stack<>();
         }
 
-        public  void replace(){
-            if(pushStack.empty() && popStack.empty()){
-                throw new RuntimeException("queue is empty ..");
-            }else if(popStack.empty()){   // 确保
-                while(!pushStack.empty()){
-                    popStack.push(pushStack.pop());
-                }
-            }
-        }
+//        public  void replace(){
+//            if(pushStack.empty() && popStack.empty()){
+//                throw new RuntimeException("queue is empty ..");
+//            }else if(popStack.empty()){   // 确保
+//                while(!pushStack.empty()){
+//                    popStack.push(pushStack.pop());
+//                }
+//            }
+//        }
         public void push(int data){
             pushStack.push(data);
         }
         public int poll(){
-            replace();
+//            replace();
+            if(pushStack.empty() && popStack.empty()){
+                throw new RuntimeException("queue is empty ..");
+            }else if(popStack.empty()){   // 确保 pop栈不为null 不让压入。不然出错。
+                while(!pushStack.empty()){  // 确保一次性全部压入
+                    popStack.push(pushStack.pop());
+                }
+            }
             return popStack.pop();
         }
 
         public int peek(){
-            replace();
+//            replace();
+            if(pushStack.empty() && popStack.empty()){
+                throw new RuntimeException("queue is empty");
+            }else if(popStack.empty()){
+                while(!pushStack.empty()){
+                    popStack.push(pushStack.pop());
+                }
+            }
             return popStack.peek();
         }
 
