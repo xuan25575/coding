@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice;
+package ccu.common.algorithms.practice.class_1;
 
 /**
  * 一个数列，其中一个数p，其左边所有比p小的数的和，是数p的小和。
