@@ -3,6 +3,10 @@ package ccu.common.algorithms.practice.class_2;
 import java.util.Stack;
 
 /**
+ *
+ * 和剑指offer题目： 给定单向链表的头指针和一个结点指针，定义一个函数在0(1)时间删除该结点, 相似但不一样
+ * 这是通过节点删除。代码在Test13
+ *
  * 在单链表中删除指定值的节点
  * 【题目】：
  *　　给定一个链表的头节点 head 和一个整数 num，请实现函数将值为 num 的节点全部删除。
@@ -45,7 +49,7 @@ public class RemoveValue {
      * @param num
      */
     public static Node removeValue2(Node head,int num){
-       // 找到第一个不为 num 的节点  并把它当做头结点
+       // 找到第一个不为 num 的节点  并把它当做头结点,处理新的链表
         while(head != null){
             if(head.value != num){
                 break;
@@ -82,9 +86,11 @@ public class RemoveValue {
         head.next.next.next.next = new Node(5);
         head.next.next.next.next.next = new Node(6);
 
-        Node node1 = removeValue1(head, 3);
-        printLinkedList(node1);
-        Node node2 = removeValue2(head, 6);
-        printLinkedList(node2);
+//        Node node1 = removeValue1(head, 3);
+//        printLinkedList(node1);
+//        Node node2 = removeValue2(head, 6);
+//        printLinkedList(node2);
+        Node node3 = removeValue2(head, 1);
+        printLinkedList(node3);
     }
 }

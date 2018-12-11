@@ -17,7 +17,7 @@ public class MyLinkedList {
             this.value = value;
         }
         public void display(){
-            System.out.println("   "+value);
+            System.out.print("   "+value);
         }
     }
 
@@ -109,7 +109,7 @@ public class MyLinkedList {
     public Node  deleteByData(int data){
         Node current  = head;
         Node previous = head;
-        while(head.value != data){
+        while(current.value != data){
             if (current.next == null) {
                 return null;
             }
@@ -158,6 +158,8 @@ public class MyLinkedList {
         linkList.insertNode(2, 23); //print19,22,23,21,20
         linkList.insertNode(3, 99); //print19,22,23,99,21,20
         //调用此方法会print 19,22,23,99,21,20
+        linkList.displayAllNodes();
+        linkList.deleteByData(19);
         linkList.displayAllNodes();
     }
 }
