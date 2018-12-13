@@ -26,8 +26,8 @@ public class PrintMatrixSpiralOrder {
     public static void  spiralOrderPrint(int[][] matrix){
         int tR = 0;
         int tC = 0;
-        int dR = matrix.length-1;
-        int dC = matrix[0].length-1;
+        int dR = matrix.length-1; // y 坐标
+        int dC = matrix[0].length-1; // x 坐标
         while(tR <= dR && tC <= dC){
             printEdge(matrix,tR++,tC++,dR--,dC--); //表示缩小一圈
         }
@@ -37,38 +37,38 @@ public class PrintMatrixSpiralOrder {
     /**
      * 打印一圈  matrix[tR][tC] 左上坐标点  matrix[dR][dC]右下坐标点  核心方法
      * @param matrix
-     * @param tR  坐标
-     * @param tC  坐标
-     * @param dR  坐标
-     * @param dC  坐标
+     * @param startY  坐标
+     * @param startX  坐标
+     * @param endY  坐标
+     * @param endX  坐标
      */
-    public static void printEdge(int[][] matrix,int tR,int tC,int dR,int dC){
-        if(tC == dC){ //一列
-            for (int i = 0; i <= dR; i++) {
-                System.out.println(matrix[i][tC]+" " );
+    public static void printEdge(int[][] matrix,int startY,int startX, int endY,int endX){
+        if(startX == endX){ //一列
+            for (int i = 0; i <= endY; i++) {
+                System.out.print(matrix[i][startX]+" " );
             }
-        }else if(tR == dR){ //一行
-            for (int i = 0; i <= dC; i++) {
-                System.out.println(matrix[tR][i]+" ");
+        }else if(startY == endY){ //一行
+            for (int i = 0; i <= endX; i++) {
+                System.out.print(matrix[startY][i]+" ");
             }
         }else{  // 多行多列
-            int curR = tR;
-            int curC = tC;
-            while(curC != dC){  // 往右走， 行号不变为第一行  列号++
-                System.out.println(matrix[tR][curC]+" ");
-                curC++;
+            int curY = startY;
+            int curX = startX;
+            while(curX != endX){  // 往右走， 行号不变为第一行  列号++
+                System.out.print(matrix[startY][curX]+" ");
+                curX++;
             }
-            while(curR != dR){ // 往下走  列号不变为最后一列 行号++
-                System.out.println(matrix[curR][dC]+" ");
-                curR++;
+            while(curY != endY){ // 往下走  列号不变为最后一列 行号++
+                System.out.print(matrix[curY][endX]+" ");
+                curY++;
             }
-            while(curC != tC){// 往左走  行号不变 为最后一行， 列号——
-                System.out.println(matrix[dR][curC]+" ");
-                curC--;
+            while(curX != startX){// 往左走  行号不变 为最后一行， 列号——
+                System.out.print(matrix[endY][curX]+" ");
+                curX--;
             }
-            while(curR != tR){ // 往上走 ， 列号不变为开始列 行号——
-                System.out.println(matrix[curR][tC]+" ");
-                curR--;
+            while(curY != startY){ // 往上走 ， 列号不变为开始列 行号——
+                System.out.print(matrix[curY][startX]+" ");
+                curY--;
             }
         }
     }
@@ -80,6 +80,19 @@ public class PrintMatrixSpiralOrder {
                            { 9, 10, 11, 12 },
                            { 13, 14, 15, 16 } };
         spiralOrderPrint(matrix);
+        System.out.println();
+
+        int[][] numbers5 = {
+                {1},
+                {2},
+                {3},
+                {4},
+                {5},
+                {6},
+                {7},
+                {8}
+        };
+        spiralOrderPrint(numbers5);
     }
 
 

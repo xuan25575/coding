@@ -15,7 +15,7 @@ public class InsertionSort {
         if(arr == null || arr.length < 2){
             return;
         }
-        for(int i =1;i<arr.length;i++){  //1 是开始位置
+        for(int i = 1;i<arr.length;i++){  //1 是开始位置
              for(int j=i-1;j>=0&&arr[j]>arr[j+1];j--){  // 确定i位置后，前面两数两两比较找到合适的位置。
                  swap(arr,j+1,j);
              }
