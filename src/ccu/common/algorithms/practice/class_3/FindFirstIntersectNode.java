@@ -88,14 +88,14 @@ public class FindFirstIntersectNode {
             n--;
             current2 =current2.next;
         }
-        if(current1 != current2){ // 在尾部相等。
+        if(current1 != current2){ // 不是同一个尾节点
             return null;
         }
         // 判断哪个先走
         current1 = n > 0 ? head1:head2;
         current2 = current1 == head1 ? head2: head1;
         n  = Math.abs(n);  // 不能为负数
-        //走到0停止
+        //走到0停止，然后一起走。
         while(n != 0){
             n--;
             current1 = current1.next;
@@ -104,7 +104,7 @@ public class FindFirstIntersectNode {
         while(current1 != current2){
             current1 = current1.next;
             current2 = current2.next;
-        }
+        }// 当两个节点相等，即是相交节点。
         return current1;
     }
 
@@ -142,7 +142,7 @@ public class FindFirstIntersectNode {
                 current2 = current2.next;
             }
             return current1;
-        }else {  // 环节点节点不在一起   两种一种两个环  一种一个环上连个环节点。
+        }else {  // 环节点节点不在一起   两种情况：一种是两个环  一种是一个环上两个环节点。
             current1 = loop1.next;
             while(current1 != loop1){
                 if(current1  == loop2){ //只要在环上相遇loop2 确定是后面那种情况。直接返回。
