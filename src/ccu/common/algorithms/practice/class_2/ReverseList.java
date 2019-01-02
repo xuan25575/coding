@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_2;
 
 /**
  * 反转单向和双向链表
@@ -24,8 +24,8 @@ public class ReverseList {
         Node next = null;
         while(head != null){
             next = head.next;
-            head.next = previous;
-            previous = head;
+            head.next = previous; // reverse operation
+            previous = head; // move
             head = next;
         }
         return previous;

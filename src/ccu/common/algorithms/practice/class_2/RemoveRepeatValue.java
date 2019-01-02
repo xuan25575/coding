@@ -30,7 +30,7 @@ public class RemoveRepeatValue {
         set.add(head.value);
         while(current != null){
             if(set.contains(current.value)){
-               previous.next = current.next;
+               previous.next = current.next; // 重连链表
             }else{
                 set.add(current.value);
                 previous = current;
