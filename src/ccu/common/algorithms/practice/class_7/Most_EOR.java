@@ -3,6 +3,7 @@ package ccu.common.algorithms.practice.class_7;
 import java.util.HashMap;
 
 /**
+ * 动态规划，+  LongestSumSubArrayLength 算法原型
  * 定义数组的异或和的概念：
  * 数组中所有的数异或起来，得到的结果叫做数组的异或和，
  * 比如数组{3,2,1}的异或和是，3^2^1 = 0
