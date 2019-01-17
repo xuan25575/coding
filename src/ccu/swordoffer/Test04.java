@@ -1,6 +1,6 @@
 package ccu.swordoffer;
 /**
- * 题目  请实现一个函数，把字符串中没一个空格替换成%20
+ * 题目  请实现一个函数，把字符串中每一个空格替换成%20
  *
  * 最直观的想法，从头扫描 遇到空格就替换成'20%'，长度是n的字符串，遇到一个空格，就需要向后移动n个字符，
  * 所以时间复杂度为O（N^2)
@@ -26,8 +26,23 @@ public class Test04 {
         System.out.println( replaceBlank(str,chars.length));
         System.out.println( replaceBlank(null,chars.length));
 
-
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("we are happy");
+        System.out.println(replaceSpace(buffer));
     }
+
+
+    public static String replaceSpace(StringBuffer str) {
+        for (int i=0;i<str.length();i++){
+            char c=str.charAt(i);
+            if(c ==' '){
+                str.replace(i, i+1, "%20");
+            }
+        }
+        return str.toString();
+    }
+
+
     /**
      *
      * @param str 替换空格使用的字符数组

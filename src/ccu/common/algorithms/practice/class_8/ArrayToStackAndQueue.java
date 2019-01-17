@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_8;
 
 /**
  * 用数组结构实现大小固定的队列和栈

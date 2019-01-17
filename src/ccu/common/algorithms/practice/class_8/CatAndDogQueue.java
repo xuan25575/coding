@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_8;
 
 import jdk.nashorn.internal.ir.RuntimeNode;
 
