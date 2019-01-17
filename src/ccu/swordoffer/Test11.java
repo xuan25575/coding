@@ -27,7 +27,7 @@ public class Test11 {
         // 结果处理
         result *= result;
          // 处理奇数
-        if((exponent & 1) == 1){  // 位运算：  0 & 1 == 1; 1 & 1 == 1
+        if((exponent & 1) == 1){  // 位运算：  0 & 1 == 0; 1 & 1 == 1
             result *= base;
         }
         return result;
