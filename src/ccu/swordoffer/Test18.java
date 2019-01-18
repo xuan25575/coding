@@ -22,10 +22,10 @@ public class Test18 {
                 result = check(head1,head2);
             }
            if(!result){
-               contain(head1.left,head2);  //配左子树
+               result = contain(head1.left,head2);  //配左子树
            }
            if (!result){
-               contain(head1.right,head2);//配右子树
+               result = contain(head1.right,head2);//配右子树
            }
         }
         return result;
@@ -44,7 +44,7 @@ public class Test18 {
         if(head2 == null){
             return true;
         }
-        if(head1 == null || head2.value != head2.value){
+        if(head1 == null || head1.value != head2.value){
             return false;
         }
         return check(head1.left,head2.left) && check(head1.right,head2.right);

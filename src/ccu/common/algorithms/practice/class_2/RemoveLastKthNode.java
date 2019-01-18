@@ -123,7 +123,7 @@ public class RemoveLastKthNode {
         head1.next.next.next  = new Node(4);
 
         printLinkedList(head1);
-        Node node = removeLastKthNode(head1,2);
+        Node node = removeLastKthNode(head1,3);
         printLinkedList(node);
 
         System.out.println("===================");
