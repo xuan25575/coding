@@ -44,11 +44,11 @@ public class PrintMatrixSpiralOrder {
      */
     public static void printEdge(int[][] matrix,int startY,int startX, int endY,int endX){
         if(startX == endX){ //一列
-            for (int i = 0; i <= endY; i++) {
+            for (int i = startY; i <= endY; i++) {
                 System.out.print(matrix[i][startX]+" " );
             }
         }else if(startY == endY){ //一行
-            for (int i = 0; i <= endX; i++) {
+            for (int i = startX; i <= endX; i++) {
                 System.out.print(matrix[startY][i]+" ");
             }
         }else{  // 多行多列
@@ -75,10 +75,16 @@ public class PrintMatrixSpiralOrder {
 
 
     public static void main(String[] args) {
-        int[][] matrix = { { 1, 2, 3, 4 },
-                           { 5, 6, 7, 8 },
-                           { 9, 10, 11, 12 },
-                           { 13, 14, 15, 16 } };
+//        int[][] matrix = { { 1, 2, 3, 4 },
+//                           { 5, 6, 7, 8 },
+//                           { 9, 10, 11, 12 },
+//                           { 13, 14, 15, 16 },
+//                           { 17, 18, 19, 20 } };
+        int[][] matrix = { { 1, 2, 3, 4 ,5},
+        { 6, 7, 8, 9 ,10},
+        { 11, 12, 13, 14 ,15},
+        {  16, 17, 18, 19 ,20},
+        { 21, 22, 23, 24 ,25}};
         spiralOrderPrint(matrix);
         System.out.println();
 
