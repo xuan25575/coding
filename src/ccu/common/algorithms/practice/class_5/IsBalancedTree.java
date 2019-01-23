@@ -4,7 +4,7 @@ package ccu.common.algorithms.practice.class_5;
  * 判断一棵树是否是平衡二叉树
  * 解：套路解法  树形DP  设计结构 收集信息
  */
-public class IsBST {
+public class IsBalancedTree {
 
     public static class Node{
         public Integer value;

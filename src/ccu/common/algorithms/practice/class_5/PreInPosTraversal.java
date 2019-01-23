@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_4;
+package ccu.common.algorithms.practice.class_5;
 
 import java.util.Stack;
 

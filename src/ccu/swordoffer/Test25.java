@@ -19,9 +19,9 @@ public class Test25 {
         public Node(){
         }
     }
-    public static void findPath(Node head,int expectedSum){
+    public static  void findPath(Node head,int expectedSum){
         if(head == null ){
-            return;
+            return ;
         }
         List<Integer> path = new ArrayList<>();
         int currentSum = 0;
@@ -61,5 +61,7 @@ public class Test25 {
         head.right = new Node();
         head.right.value = 12;
         findPath(head, 22);
+
+
     }
 }
