@@ -11,7 +11,7 @@ import java.util.HashMap;
  *  法二：
  *      先将链表化成 1->1'->2->2'->...
  *
- *      可参考 class_3 包下的CopyListWithRandom 类
+ *      可参考 class_2 包下的CopyListWithRandom 类
  */
 public class Test26 {
     public static class ComplexListNode {
@@ -62,7 +62,7 @@ public class Test26 {
             return null;
         }
         ComplexListNode cur = head;
-        //复制链表
+        //复制链表   1->1`->2->2`->3->3`->null
         while(cur != null){
             ComplexListNode cloneCur =  new ComplexListNode(cur.value);
             cloneCur.next = cur.next;

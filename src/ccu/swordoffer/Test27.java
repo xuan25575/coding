@@ -17,6 +17,39 @@ public class Test27 {
         }
     }
 
+
+    public static Node convert2(Node head){
+        if(head==null) {
+            return null;
+        }
+        if(head.right==null && head.left==null){
+            return head;
+        }
+        // 1.将左子树构造成双链表，并返回链表头节点
+        Node left = convert2(head.left);
+        Node p = left;
+        // 2.定位至左子树双链表最后一个节点
+        while( p!= null && p.right!=null){
+            p = p.right;
+        }
+        // 3.如果左子树链表不为空的话，将当前root追加到左子树链表
+        if(left != null){
+            p.right = head;
+            head.left = p;
+        }
+        // 4.将右子树构造成双链表，并返回链表头节点
+        Node right = convert2(head.right);
+
+        // 5.如果右子树链表不为空的话，将该链表追加到root节点之后
+        if(right != null){
+            head.right = right;
+            right.left = head;
+        }
+        return left != null ? left:head;
+
+    }
+
+
     /**
      * 解一：
      * @param head
@@ -57,9 +90,6 @@ public class Test27 {
         }
         return lastNode;
     }
-
-
-
 
 
 
@@ -121,8 +151,10 @@ public class Test27 {
         System.out.println("inOrderTraversal: ");
         inTraversalRecursion(node10);
         System.out.println();
-        Node head = convert1(node10);
-        printDoubleLinkedList(head);
+   //     Node head = convert1(node10);
+        Node head2 = convert2(node10);
+   //     printDoubleLinkedList(head);
+        printDoubleLinkedList(head2);
         System.out.println();
     }
 

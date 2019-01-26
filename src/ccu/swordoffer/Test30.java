@@ -14,9 +14,9 @@ public class Test30 {
        int index =  partition2(arr,0,arr.length-1);
         while(index != k-1){
             if(index > k-1){
-                index = partition2(arr,0,index-1);
+                index = partition(arr,0,index-1);
             }else{
-                index =partition2(arr,index+1,arr.length-1);
+                index =partition(arr,index+1,arr.length-1);
             }
         }
         int[] res = new int[k];
@@ -29,18 +29,19 @@ public class Test30 {
 
     public static int partition(int[] arr,int start,int end){
      //   int pivotIndex = (int)(Math.random()*arr.length);
-        int pivotIndex = start;
-        int pivot = arr[pivotIndex];
-        swap(arr,pivotIndex,end);
-
+//        int pivotIndex = start;
+        int pivot = arr[start];  // 开始位置选取很重要
+      //  swap(arr,pivotIndex,end);
         int low = start;
         int high = end;
         while(low < high){
-            while (low<high && arr[low] <= pivot) low ++;
+            // 因为把pivot放在了开始位置，所以hi指针先走
             while (low <high && arr[high] >= pivot) high--;
+            while (low<high && arr[low] <= pivot) low++;
             swap(arr,low,high);
         }
-        swap(arr,low,end);
+      //  swap(arr,low,end);
+        swap(arr,low,start); // 交换 pivot 值
         return low;
     }
 

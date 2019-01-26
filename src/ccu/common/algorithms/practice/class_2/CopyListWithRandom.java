@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_2;
 
 /*【题目】
         一种特殊的链表节点类描述如下：

@@ -9,6 +9,8 @@ package ccu.swordoffer;
  *  去重：
  *     就是从第一个字符开始，每个字符与其后面非重复的字符交换
  *     即：当chars[begin]与chars[i]交换时，[begin,i)中没有与chars[i]相同的字符
+ *
+ *     回溯算法的思想
  */
 public class Test28 {
 
@@ -31,7 +33,7 @@ public class Test28 {
                 //if(isSwap(chars,begin,i)){
                 swap(chars,begin,i);
                 permutation(chars,begin+1);
-                swap(chars,begin,i);
+                swap(chars,begin,i); // 回溯
             //    }
             }
         }
@@ -54,7 +56,10 @@ public class Test28 {
 
     public static void main(String[] args) {
         String str = new String();
-        str = "ab";
+        str = "abc";
         permutation(str);
+      //  abc acb bac bca cba cab
+      //  abc acb cab cba abc acb
+
     }
 }
