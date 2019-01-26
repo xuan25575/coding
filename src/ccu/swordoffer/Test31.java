@@ -40,19 +40,25 @@ public class Test31 {
         if(arr == null || arr.length == 0){
             return 0;
         }
-//        int cur = 0;
-//        for (int i = 0; i < arr.length; i++) {
-//            cur
-//        }
-        return 0;
+        int max = Integer.MIN_VALUE;
+        int cur = 0;
+        for (int i = 0; i < arr.length; i++) {
+            cur += arr[i];
+            max = Math.max(cur,max);
+            cur = cur < 0 ? 0 : cur;
+        }
+        return max;
     }
     public static void main(String[] args) {
         int[] data = {1, -2, 3, 10, -4, 7, 2, -5};
         int[] data2 = {-2, -8, -1, -5, -9};
         int[] data3 = {2, 8, 1, 5, 9};
         System.out.println(findGreatestSumOfSubArray(data));
+        System.out.println(findGreatestSumOfSubArray2(data));
         System.out.println(findGreatestSumOfSubArray(data2));
+        System.out.println(findGreatestSumOfSubArray2(data2));
         System.out.println(findGreatestSumOfSubArray(data3));
+        System.out.println(findGreatestSumOfSubArray2(data3));
     }
 
 

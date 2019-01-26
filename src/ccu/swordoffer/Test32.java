@@ -6,6 +6,27 @@ package ccu.swordoffer;
  */
 public class Test32 {
 
+
+
+    public static int solution3(int n){
+        if(n < 1){
+            return 0;
+        }
+        int count = 0;
+        while(n > 0){
+            char[] chars = String.valueOf(n).toCharArray();
+            for (int i = 0; i < chars.length; i++) {
+                if(chars[i] == '1'){
+                    count++;
+                }
+            }
+            n--;
+        }
+        return count;
+    }
+
+
+
     /**
      * 解1
      * @param num
@@ -34,6 +55,14 @@ public class Test32 {
     }
 
 
+    /**
+     * temp 为10次方
+     * 思路：最高为1 (num % temp)+1  和不为1 temp  的情况，
+     *       求第二位  比如千为1   个位百位千位都为 0-9 的任意数，    该位1的个数： 10^3* 4 (个位十位百位千位)* first(最高为几)
+     *       递归求解
+     * @param num
+     * @return
+     */
 
     public static int solution2(int num){
         if(num < 1){
@@ -45,7 +74,7 @@ public class Test32 {
         }
         int temp = powerBaseOf10(len-1);
         int first = num / temp; // 求出第一位
-        int firstNumOf1 = first == 1 ? (num % temp )+1:temp;
+        int firstNumOf1 = first == 1 ? (num % temp)+1:temp;
         int secondNumOf1 = first *(len-1)*(temp/10);
         return  firstNumOf1+secondNumOf1+solution2(num % temp);
     }
@@ -68,7 +97,7 @@ public class Test32 {
         System.out.println(solution2(99));
         System.out.println(solution2(21345));
         System.out.println(solution1(5));
-        System.out.println(solution1(99));
+        System.out.println(solution3(99));
         System.out.println(solution1(21345));
         System.out.println(0X80000000);
     }

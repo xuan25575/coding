@@ -1,5 +1,6 @@
 package ccu.swordoffer;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -23,6 +24,12 @@ public class Test33 {
         printMinNumber(data);
         String[] data3 = {"3", "323", "32123"};
         printMinNumber(data3);
+
+        String[] strings = new String[5];
+        System.out.println(strings.length);
+
+        int[] data2 =  {3,323,32123};
+        System.out.println(printMinNumber2(data2));
     }
 
 
@@ -64,10 +71,6 @@ public class Test33 {
         arr[j] = temp;
     }
 
-
-
-
-
     public static class StringComparator implements Comparator<String>{
 
         @Override
@@ -78,5 +81,26 @@ public class Test33 {
             }
             return (o1+o2).compareTo(o2+o1);
         }
+    }
+
+
+    public static String printMinNumber2(int [] numbers) {
+        if(numbers == null || numbers.length == 0) return "";
+        int len = numbers.length;
+        String[] str = new String[len];
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < len; i++){
+            str[i] = String.valueOf(numbers[i]);
+        }
+        Arrays.sort(str,new Comparator<String>(){
+            @Override
+            public int compare(String s1, String s2) {
+                return (s1 + s2).compareTo(s2 + s1);
+            }
+        });
+        for(int i = 0; i < len; i++){
+            sb.append(str[i]);
+        }
+        return sb.toString();
     }
 }
