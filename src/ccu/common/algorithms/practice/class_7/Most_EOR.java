@@ -4,12 +4,14 @@ import java.util.HashMap;
 
 /**
  * 动态规划，+  LongestSumSubArrayLength 算法原型
+ *
  * 定义数组的异或和的概念：
  * 数组中所有的数异或起来，得到的结果叫做数组的异或和，
  * 比如数组{3,2,1}的异或和是，3^2^1 = 0
  * 给定一个数组arr，你可以任意把arr分成很多不相容的子数组，你的目的是：
  * 分出来的子数组中，异或和为0的子数组最多。
  * 请返回：分出来的子数组中，异或和为0的子数组最多是多少？
+ *
  *  解:
  * 情况1：从 0 到 i 存在最优划分，i 所在的子数组不是异或和为 0 的部分，即不在最优划分里面，
  * 那么 0 到 i 部分能划分多少个异或和为0的子数组 和 0 到 i- 1 能划分多少个异或和为 0 的子数组的结果是一样的，
@@ -31,7 +33,7 @@ public class Most_EOR {
         int xor = 0; //异或
         int[] dp = new int[arr.length]; // 动态规划的数组
         HashMap<Integer,Integer> map = new HashMap<>(); // 第一个数存放 异或和，第二个存放下标
-        map.put(0,-1); // 特殊情况
+        map.put(0,-1); // 特殊情况 重要
         for(int i = 0;i < arr.length;i++){
             xor ^= arr[i];
             if(map.containsKey(xor)){ //解中分析的 情况二

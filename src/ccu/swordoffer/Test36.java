@@ -20,49 +20,30 @@ package ccu.swordoffer;
  */
 public class Test36 {
 
-
-//    public static int inversePairs(int[] arr){
-//        if(arr == null || arr.length <1){
-//            return 0;
-//        }
-//        int[] aux = new int[arr.length];
-//
-////        for (int i = 0; i < arr.length; i++) {
-////            aux[i] = arr[i];
-////        }
-//        System.arraycopy(arr, 0, aux, 0, arr.length);
-//        return inversePairsCore(arr,0,arr.length-1,aux);
-//    }
-
     public static int inversePairsCore(int[] arr, int[] aux, int lo, int hi) {
         if (lo == hi) {
-            aux[lo] = arr[lo];
             return 0;
         }
-        int len = (hi - lo) / 2;
-//        int left = inversePairsCore(arr,lo,lo+len,aux);
-//        int right = inversePairsCore(arr,lo+len+1,hi,aux); //aux 数组放在最后  如果是 int[] data7 = {1, 2, 1, 2, 1}; 出现2 的bug
-
-        //todo 两个数组的参数位置互换了
-        int left = inversePairsCore(aux, arr, lo, lo + len);
-        int right = inversePairsCore(aux, arr, lo + len + 1, hi);
-
-        int p1 = lo + len; //前半部分的末尾
+        int mid = lo +(hi-lo)/2;
+        int left = inversePairsCore(aux, arr, lo, mid);
+        int right = inversePairsCore(aux, arr, mid + 1, hi);
+        // 两个指针
+        int p1 = mid; //前半部分的末尾
         int p2 = hi; // 后半部分的末尾
-        int p3 = hi;
-        int cnt = 0;
-        while (p1 >= lo && p2 >= lo + len + 1) {
-            if (arr[p1] > arr[p2]) {
-                cnt += p2 - lo - len;
+        int p3 = hi;  // 辅助数组的复制
+        int cnt = 0; // 逆序对数的统计
+        while (p1 >= lo && p2 >= mid+ 1) {
+            if (arr[p1] > arr[p2]) { // 存在逆序对
+                cnt += (p2 - mid); // p2 之前的都是小于 p[p1]的数(归并过程中（p2 - mid）排序了)  统计逆序对数
                 aux[p3--] = arr[p1--];
             } else {
-                aux[p3--] = arr[p2--];
+                aux[p3--] = arr[p2--]; // 加入p2 的值  顺便再辅助数组排序
             }
         }
         while (p1 >= lo) {
             aux[p3--] = arr[p1--];
         }
-        while (p2 >= lo + len + 1) {
+        while (p2 >= mid + 1) {
             aux[p3--] = arr[p2--];
         }
         return cnt + left + right;
@@ -74,10 +55,10 @@ public class Test36 {
             throw new IllegalArgumentException("args should not be null or empty");
         }
         int[] aux = new int[arr.length];
-        // todo  这里没懂  不要 出bug
-        System.arraycopy(arr, 0, aux, 0, arr.length);
+        for (int i = 0; i < arr.length; i++) {
+            aux[i ]  = arr[i];
+        }
         return inversePairsCore(arr, aux, 0, arr.length - 1);
-//        return inversePairsCore(arr,0,arr.length-1,aux);
     }
 
 

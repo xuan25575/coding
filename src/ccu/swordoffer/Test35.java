@@ -23,7 +23,8 @@ public class Test35 {
         int count = 0;
         Map<Character,Integer> map = new HashMap<>();
         for (int i = 0; i < c.length; i++) {
-            if(map.get(c[i]) == null){
+//            if(map.get(c[i]) == null){
+            if(!map.containsKey(c[i])){
                 map.put(c[i],1);
             }else{
                 count = map.get(c[i]);
@@ -43,10 +44,34 @@ public class Test35 {
 
     public static void main(String[] args) {
      //   System.out.println('\0');
-        System.out.println(firstNotRepeatingChar("google")); // l
-        System.out.println(firstNotRepeatingChar("aabccdbd")); // '\0'
-        System.out.println(firstNotRepeatingChar("abcdefg")); // a
-        System.out.println(firstNotRepeatingChar("gfedcba")); // g
+//        System.out.println(firstNotRepeatingChar("google")); // l
+//        System.out.println(firstNotRepeatingChar("aabccdbd")); // '\0'
+//        System.out.println(firstNotRepeatingChar("abcdefg")); // a
+//        System.out.println(firstNotRepeatingChar("gfedcba")); // g
         System.out.println(firstNotRepeatingChar("zgfedcba")); // g
+        System.out.println(FirstNotRepeatingChar("zgfedcba")); // g
+    }
+
+
+    public static  int FirstNotRepeatingChar(String str) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        char[] chars = str.toCharArray();
+        for(char c : chars){
+            if(!map.containsKey(c)){
+                map.put(c,1);
+            }else{
+                int count =map.get(c);
+                count++;
+                map.put(c,count);
+            }
+        }
+        int res  = -1;
+        for(int i=0;i < chars.length;i++){
+            if(map.get(chars[i]) == 1){
+                res = i;
+                break;
+            }
+        }
+        return res;
     }
 }
