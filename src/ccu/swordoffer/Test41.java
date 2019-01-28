@@ -8,14 +8,13 @@ package ccu.swordoffer;
 public class Test41 {
 
     public static boolean findNumbersWithSum(int[] arr,int s){
-        if (arr==null || arr.length<2){
-            throw new IllegalArgumentException("Invalid args");
-        }
+        if (arr == null || arr.length < 2) return false;
         int p1 = 0;
         int p2 = arr.length -1;
         long sum = 0;
         int[] res = new int[2];
         boolean found = false;
+
         while(p1 < p2){
             sum = arr[p1] + arr[p2];
             if(sum == s){

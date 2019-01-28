@@ -1,5 +1,8 @@
 package ccu.swordoffer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 题目二：输入一个正数 s，打印出所有和为 s 的连续正数序列（至少两个数）。
  * 例如输入 15，
@@ -7,6 +10,39 @@ package ccu.swordoffer;
  *   所以结果打出 3 个连续序列 1～5、4～6 和 7～8。
  */
 public class Test41_1 {
+
+
+    /**
+     *  维护一个一个窗口 思路可以
+     * @param s
+     * @return
+     */
+    public static List<List<Integer>> findContinuousSequence2(int s){
+        if(s < 3) return null;
+        int p1= 1,p2 = 2;
+        List<List<Integer>> result  = new ArrayList<>();
+        while(p1 < p2){
+            int cur = (p1+p2 )*(p2-p1+1)/2; // 等差数列求和
+            if(cur ==s ){
+                List<Integer> list = new ArrayList<>();
+                for (int i = p1; i <=p2 ; i++) {
+                    list.add(i);
+                }
+                result.add(list);
+                p1++;
+            }else if(cur > s ){
+                p1++;
+            }else{
+                p2++;
+            }
+        }
+        return result;
+    }
+
+
+
+
+
 
     public static void findContinuousSequence(int s){
         if(s < 3){

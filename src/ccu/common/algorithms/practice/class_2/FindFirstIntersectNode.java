@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_2;
 
 /**
  * 两个单链表相交的一系列问题

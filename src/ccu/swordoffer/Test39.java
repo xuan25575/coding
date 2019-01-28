@@ -15,9 +15,7 @@ public class Test39 {
             }
         }
     public static  int treeDepth(Node head){
-        if(head == null ){
-            return 0;
-        }
+        if(head == null ) return 0;
         int left = treeDepth(head.left);
         int right = treeDepth(head.right);
         return left > right ? (left +1) : (right+1);

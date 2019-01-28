@@ -17,8 +17,8 @@ public class Test40 {
     public static void main(String[] args) {
 
         int[] data1 = {2, 4, 3, 6, 3, 2, 5, 5};
-        int[] result1 = findNumAppearOnce(data1);
-        System.out.println(result1[0] + " " + result1[1]);
+//        int[] result1 = findNumAppearOnce(data1);
+//        System.out.println(result1[0] + " " + result1[1]);
 //        int xor = 0;
 //        for (int i : data1) {
 //            xor = xor^ i;
@@ -27,9 +27,45 @@ public class Test40 {
 
         int[] data3 = {4, 6, 1, 1, 1, 1};
         int[] result3 = findNumAppearOnce(data3);
+        int[] result4 = findNumAppearOnce2(data3);
         System.out.println(result3[0] + " " + result3[1]);
+        System.out.println(result4[0] + " " + result4[1]);
 
     }
+
+    /**
+     * 精简版代码
+     * @param arr
+     * @return
+     */
+    public static int[] findNumAppearOnce2(int[] arr){
+        if(arr== null ||  arr.length < 2){
+            return null;
+        }
+        int sum = 0, index = 0;
+        int[] result= new int[2];
+        for (int i = 0; i < arr.length; i++) {
+            sum ^= arr[i];
+        }
+        for (index=0; index < 32; index++) {
+            if((sum & (1 << index))!= 0) break;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if((arr[i] & (1 << index)) != 0){
+//            if((arr[i] & (1 << index)) == 1){ 错误
+                result[0] ^= arr[i];
+            }else{
+                result[1] ^= arr[i];
+            }
+        }
+        return result;
+    }
+
+
+
+
+
+
     /**
      *   那数组中又两个只出现一次的数字呢？
      *      我们可以把大数组分成两个子数组啊，每个子数组中都只有1个只出现一次的数字。*
@@ -82,6 +118,43 @@ public class Test40 {
             index++;
         }
         return index;
+    }
+
+
+
+    /**
+     * 数组a中只有一个数出现一次，其他数都出现了2次，找出这个数字
+     * @param a
+     * @return
+     */
+    public static int find1From2(int[] a){
+        int len = a.length, res = 0;
+        for(int i = 0; i < len; i++){
+            res = res ^ a[i];
+        }
+        return res;
+    }
+    /**
+     * 数组a中只有一个数出现一次，其他数字都出现了3次，找出这个数字
+     * 没看明白
+     * @param a
+     * @return
+     */
+    public static int find1From3(int[] a){
+        int[] bits = new int[32];
+        int len = a.length;
+        for(int i = 0; i < len; i++){
+            for(int j = 0; j < 32; j++){
+                bits[j] = bits[j] + ( (a[i]>>>j) & 1);
+            }
+        }
+        int res = 0;
+        for(int i = 0; i < 32; i++){
+            if(bits[i] % 3 !=0){
+                res = res | (1 << i);
+            }
+        }
+        return res;
     }
 
 }

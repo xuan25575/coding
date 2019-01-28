@@ -35,10 +35,9 @@ public class Test39_1 {
     /**
      *   遍历一次解决。
      * @param head
-     * @param depth
+     * @param depth 引用类型数据存在堆中保证高度的数据不会丢失   使用（int depth）形参则会栈执行完后丢弃这个参数
      * @return
      */
-
     public static boolean isBinaryTree2(Node head,int[] depth){
         if(head == null){
             depth[0] = 0;
@@ -55,6 +54,21 @@ public class Test39_1 {
         }
         return false;
     }
+
+
+    public static int getDepth(Node root){
+        if(root == null ) return 0;
+        int left = getDepth(root.left);
+        if (left == -1) return -1; // 判断左子树 是不是平衡
+        int right = getDepth(root.right);
+        if(right == -1) return  -1;// 判断右子树 是不是平衡
+        return Math.abs(left -right) > 1 ? -1 : Math.max(left,right)+1;
+    }
+
+    public static boolean isBinaryTree3(Node head){
+        return  getDepth(head)!= -1;
+    }
+
 
 
     public static void main(String[] args) {
