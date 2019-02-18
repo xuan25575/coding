@@ -14,8 +14,8 @@ package ccu.swordoffer;
 public class Test42 {
 
     public static String reverseSequence2(String str){
-        if(str == null || str ==""){
-            return null;
+        if(str.trim().equals("")){
+            return str;
         }
         String[] strings = str.split(" ");
         StringBuffer sb = new StringBuffer();

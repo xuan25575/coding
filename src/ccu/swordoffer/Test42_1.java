@@ -18,8 +18,25 @@ public class Test42_1 {
         return new String(c);
     }
 
+    /**
+     *  大佬思路  巧妙啊。
+     * @param str
+     * @param n
+     * @return
+     */
+    public static String leftRotateString2(String str,int n){
+        int len = str.length();
+        if(len == 0) return "";
+        n = n % len; // 求出需要 截取字母长度。。
+        str += str;
+        return str.substring(n,len+n);
+    }
+
     public static void main(String[] args) {
         System.out.println(leftRotateString("abcdefg",2));
+        System.out.println(leftRotateString2("abcdefg",2));
+
+//        System.out.println( 2 % 5);
 
     }
 }
