@@ -19,11 +19,18 @@ public class Test46 {
     }
 
     public static void main(String[] args) {
-        int n = 3;
-        Temp[] temps =  new Temp[n];
-        for (int i = 0; i < temps.length; i++) {
-            temps[i] = new Temp();
-        }
-        System.out.println(temps[n-1].getSum());
+//        int n = 3;
+//        Temp[] temps =  new Temp[n];
+//        for (int i = 0; i < temps.length; i++) {
+//            temps[i] = new Temp();
+//        }
+//        System.out.println(temps[n-1].getSum());
+        System.out.println(solution(10));
+    }
+
+    public static int solution(int n ){
+        int res = n;
+        boolean flag = n > 0 && (res += solution(n-1))>0;
+        return res;
     }
 }

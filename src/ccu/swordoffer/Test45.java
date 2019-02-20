@@ -52,7 +52,7 @@ public class Test45 {
 
     /**
      *  公式：
-     * f(N,M)=(f(N−1,M)+M)%n
+     * f(N,M)=(f(N−1,M)+M)%n*
      */
     public static int lastRemaining(int n,int m){
         if(n < 1 ||  m < 1){
@@ -65,6 +65,7 @@ public class Test45 {
         return last;
     }
 
+    //f(N,M)=(f(N−1,M)+M)%n
     public static int lastRemaining2(int n,int m){
         if(n < 1 ||  m < 1){
             return -1;

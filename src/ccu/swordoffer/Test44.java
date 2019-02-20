@@ -44,6 +44,26 @@ public class Test44 {
         return cntZero >= cntGap ? true: false;
     }
 
+    // 代码优化调整
+    public static boolean isContinuous2(int[] arr){
+        if(arr.length == 0 || arr == null)  return false;
+        Arrays.sort(arr); // 排序
+        int cntZero = 0;
+        int cntGap = 0;
+        int len = arr.length;
+        for (int i = 0; i < len -1 ; i++) {
+            if(arr[i] == 0){ //统计0  的个数
+                cntZero++;
+                continue;
+            }
+            if(arr[i] == arr[i+1]) return false; // 出现对子
+            cntGap += arr[i+1] -arr[i]-1; // 计算所有相邻数字间隔总数
+        }
+        return cntZero >= cntGap ? true: false;
+
+    }
+
+
     public static void main(String[] args) {
         int[] numbers1 = {1, 3, 2, 5, 4};
         System.out.println(isContinuous(numbers1));
@@ -53,7 +73,9 @@ public class Test44 {
         System.out.println(isContinuous(numbers3));
         int[] numbers4 = {0, 3, 1, 3, 4};
         System.out.println(isContinuous(numbers4));
+        System.out.println(isContinuous2(numbers4));
         int[] numbers5 = {1, 3, 0, 5, 0};
         System.out.println(isContinuous(numbers5));
+        System.out.println(isContinuous2(numbers5));
     }
 }
