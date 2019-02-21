@@ -32,6 +32,7 @@ public class Test50 {
 
     /**
      * 左神解法
+     * 基于二叉树的后序遍历
      * @param head
      * @param o1
      * @param o2

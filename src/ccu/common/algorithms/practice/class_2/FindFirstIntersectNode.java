@@ -47,7 +47,7 @@ public class FindFirstIntersectNode {
      * @return  有环返回环节点  无环返回null
      */
     public static Node getLoopNode(Node head){
-        if(head == null|| head.next == null || head.next == null){
+        if(head == null|| head.next == null || head.next.next == null){
             return null;
         }
         Node n1 = head.next; // - slow

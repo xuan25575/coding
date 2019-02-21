@@ -14,6 +14,26 @@ package ccu.swordoffer;
 public class Test49 {
 
 
+    // 代码优化
+    public static int strToInt(String str){
+        if(str.equals("") || str .length()== 0) return 0;
+        char[] c = str.toCharArray();
+        int symbol = 0; // 符号
+        int sum =0;
+        if(c[0] == '-') symbol =1;// 当符号为symbol为-时， 才会为1
+        for (int i = symbol; i < c.length; i++) {
+            if(c[i] == '+') continue;
+            if(c[i] < '0' || c[i] >'9') return 0; // 非整数
+            sum = sum*10 + c[i] -'0';
+        }
+        return symbol==0 ? sum :sum *(-1);
+    }
+
+
+
+
+
+
     public static int stringToInt(String str){
         if (str==null || str.length()<=0){
             throw new IllegalArgumentException("args  is  null or empty");
@@ -58,6 +78,7 @@ public class Test49 {
         System.out.println(0x8000_0000L);
         System.out.println(stringToInt("123"));
         System.out.println(stringToInt("+123"));
+        System.out.println(strToInt("+123"));
         System.out.println(stringToInt("-123"));
     }
 }
