@@ -1,10 +1,11 @@
-package ccu.common.algorithms;
+package ccu.common.algorithms.interview;
 
 /**
  * 输出100以内所有的素数
+ * 质数又称素数。一个大于1的自然数，除了1和它自身外，不能被其他自然数整除的数叫做质数
  *
  */
-public class Test01 {
+public class Test02 {
 
     public static void main(String[] args) {
         printPrimeNumber3();
@@ -12,6 +13,7 @@ public class Test01 {
         printPrimeNumber1();
         System.out.println();
         printPrimeNumber2();
+        System.out.println(2%2);
     }
 
     /**
@@ -44,13 +46,13 @@ public class Test01 {
      *  普通方法 用一个Boolean值控制输出
      *  boolean 变量是用来控制是不是质数的。
      *  注意 ：int j=2 开始。 j=2  取1 所有数都是输出不了。
-     *  Math.sqrt(i) 取得平方根方法  优化循环次数*
+     *  Math.sqrt(i) 取得平方根方法  内层for循环作为 除数  优化循环次数*   除了2所有的偶数都不是质数，那么能不能只遍历奇数。
      *  取余方向  i % j
      */
     public static  void  printPrimeNumber2(){
         for (int i = 2;i<100;i++){
             boolean flag =  true;
-            for(int j=2;j<= (int)Math.sqrt(i);j++){
+            for(int j = 2;j<= (int)Math.sqrt(i);j++){
                 if(i % j == 0){
                     flag = false;
                     break;
