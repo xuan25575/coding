@@ -13,33 +13,31 @@ public class Test8 {
         if(arr == null || arr.length < 1){
             throw new RuntimeException(" array is error ..");
         }
-        int index1 = 0;
-        int index2 = arr.length-1;
-        int indexMid = 0;
-        while(arr[index1] >= arr[index2]){ //特殊性 开始位置大于等于结束位置
-            if(index2-index1 == 1){  // 当index1和index2挨着的时候  index2 下标为最小。
-                indexMid = index2;
+        int left = 0,right = arr.length-1;
+        int mid = 0;
+        while(arr[left] >= arr[right]){ //特殊性 开始位置大于等于结束位置
+            if(right-left == 1){  // 当index1和index2挨着的时候  index2 下标为最小。
+                mid = right;
                 break;
-//                return arr[index2];
             }
-            indexMid = (index2 + index1)/2;
+            mid = (right + left)/2;
             //1,0,1,1,1
             //1,1,1,0,1
             //特殊情况此时就要遍历整个arr[index1...index2]了，
-            if(arr[index1] == arr[indexMid] && arr[indexMid] == arr[index2]){
-                return getMinInArray(arr,index1,index2);
-            }else if(arr[indexMid] >= arr[index1]){
-                index1 = indexMid ;
-            }else if(arr[indexMid] <= arr[index2]){
-                index2 = indexMid;
+            if(arr[left] == arr[mid] && arr[mid] == arr[right]){
+                return getMinInArray(arr,left,right);
+            }else if(arr[mid] >= arr[left]){
+                left = mid ;
+            }else if(arr[mid] <= arr[right]){
+                right = mid;
             }
         }
-        return arr[indexMid];
+        return arr[mid];
 
     }
     public static int getMinInArray(int[ ] arr,int index1,int index2){
         int min = arr[index1];
-        for (int i = index1 + 1; i < index2; i++) {
+        for (int i = index1 + 1; i <= index2; i++) {
             if(min > arr[i]){
                 min = arr[i];
             }
@@ -47,6 +45,22 @@ public class Test8 {
         return min;
     }
 
+
+    //没有思路。
+    public static int minNumberInRotateArray(int [] array) {
+        int low = 0 ; int high = array.length - 1;
+        while(low < high){
+            int mid = low + (high - low) / 2;
+            if(array[mid] > array[high]){
+                low = mid + 1;
+            }else if(array[mid] == array[high]){
+                high = high - 1;
+            }else{
+                high = mid;
+            }
+        }
+        return array[low];
+    }
 
     public static void main(String[] args) {
         // 典型输入，单调升序的数组的一个旋转
@@ -61,6 +75,7 @@ public class Test8 {
         // 有重复的数字，并且重复的数字刚好是第一个数字和最后一个数字
         int[] array4 = {1, 0, 1, 1, 1};
         System.out.println(minNumberInRotatedArray(array4));
+        System.out.println(minNumberInRotateArray(array4));
         // 单调升序数组，旋转0个元素，也就是单调升序数组本身
         int[] array5 = {1, 2, 3, 4, 5};
         System.out.println(minNumberInRotatedArray(array5));

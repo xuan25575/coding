@@ -27,14 +27,13 @@ public class Test03 {
             return false;
         }
         int rows = matrix.length;
-        int columns = matrix[0].length;
-        if(rows <1 || columns <1){
+        int cols = matrix[0].length;
+        if(rows <1 || cols <1){
             return false;
         }
-        int row =0;
-        int col = columns-1;
+        int col = cols-1,row =0;
         //对 columns 和 row 判断
-        while(row < rows  && col >= 0 ){
+        while(row < rows  &&  col >= 0){
             if(matrix[row][col] == find){
                 return true;
             }else if(matrix[row][col] > find){

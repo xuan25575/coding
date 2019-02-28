@@ -24,14 +24,12 @@ public class Test5 {
     }
 
     /**
-     * 栈实现
+     * 栈实现  顺序逆序  -->栈先进后出
      * @param head
      */
     public static void printListReverseByStack(ListNode  head){
         Stack<Integer> stack = new Stack<>();
-        if(head  == null){
-          return;
-        }
+        if(head  == null) return;
         while(head != null){
             stack.push(head.value);
             head = head.next;
@@ -46,9 +44,7 @@ public class Test5 {
      * @param head
      */
     public static void printListReverseByRecursion(ListNode head) {
-        if (head == null) {
-            return;
-        }
+        if (head == null)  return;
         printListReverseByRecursion(head.next);
         System.out.println(head.value);
     }

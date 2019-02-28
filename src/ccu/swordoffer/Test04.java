@@ -31,10 +31,32 @@ public class Test04 {
         System.out.println(replaceSpace(buffer));
     }
 
+    public String replaceSpace2(StringBuffer str) {
+        if(str==null){
+            return null;
+        }
+        StringBuilder newStr = new StringBuilder();
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)==' '){
+                newStr.append('%');
+                newStr.append('2');
+                newStr.append('0');
+            }else{
+                newStr.append(str.charAt(i));
+            }
+        }
+        return newStr.toString();
+    }
 
+
+
+
+
+
+    //简单方法。 str replace 方法
     public static String replaceSpace(StringBuffer str) {
         for (int i=0;i<str.length();i++){
-            char c=str.charAt(i);
+            char c = str.charAt(i);
             if(c ==' '){
                 str.replace(i, i+1, "%20");
             }
@@ -61,7 +83,6 @@ public class Test04 {
                blankNum++;
            }
        }
-
        int p1 = length -1;
        int p2 = length + blankNum*2;
 //判断char 数组长度是否足够。
@@ -81,4 +102,7 @@ public class Test04 {
        }
        return new String(str);
     }
+
+
+
 }
