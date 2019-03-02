@@ -69,4 +69,5 @@ public class Test10 {
         System.out.println(0B01111111_11111111_11111111_11111111 == Integer.MAX_VALUE);
         System.out.println(0B10000000_00000000_00000000_00000000 == Integer.MIN_VALUE);
     }
+
 }

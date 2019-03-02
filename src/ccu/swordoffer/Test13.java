@@ -27,7 +27,7 @@ public class Test13 {
           if(head == null || deleteNode == null){
               return null;
           }
-          if (deleteNode.next != null){
+          if (deleteNode.next != null){  // 使用覆盖的方法。
               Node next =  deleteNode.next;
               deleteNode.value = next.value;
               deleteNode.next = next.next;

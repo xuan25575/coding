@@ -22,7 +22,6 @@ public class Test12 {
 
  //解法二：
 
-
     public static void printMaxOfNDigits(int n){
         if(n < 0){
             throw new RuntimeException(" error number ");

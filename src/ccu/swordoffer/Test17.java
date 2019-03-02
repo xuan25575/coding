@@ -71,6 +71,21 @@ public class Test17 {
         return mergeHead;
     }
 
+    //理解
+    public Node Merge(Node list1,Node list2) {
+        if(list1 == null)
+            return list2;
+        if(list2 == null)
+            return list1;
+        if(list1.value <= list2.value){
+            list1.next = Merge(list1.next, list2);
+            return list1;
+        }else{
+            list2.next = Merge(list1, list2.next);
+            return list2;
+        }
+    }
+
     public static void printList(Node node){
         while(node!= null){
             System.out.print(node.value +" ");

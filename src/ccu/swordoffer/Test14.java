@@ -46,7 +46,7 @@ public class Test14 {
     }
 
     /**
-     * O(N)的解法
+     * O(N)的解法  不能保证相对位置不变。
      * @param arr 整数数组
      */
     public static void  reorderOddEven2(int[] arr){
@@ -67,8 +67,22 @@ public class Test14 {
     }
 
 
+    /** 加一个条件，怎样保证相对位置不变。*/
+    public void reOrderArray(int [] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if(array[j-1]%2==0 && array[j]%2==1){
+                    swap(array,j-1,j);
+                }
+            }
+        }
+    }
 
-    public static void printArray(int[] arr){
+
+
+
+
+        public static void printArray(int[] arr){
         if(arr == null){
             return;
         }

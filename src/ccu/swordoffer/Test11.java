@@ -14,20 +14,15 @@ package ccu.swordoffer;
 public class Test11 {
 
     public static double powerWithRecursion(double base,int exponent){
-        if(exponent == 0){
-            return 1;
-        }
-        if(exponent == 1){
-            return base;
-        }
-        if(exponent == -1){ // 处理-1
-          return 1/base;
-        }
+        if(exponent == 0)
+             return 1;
+        if(exponent == 1)
+             return base;
+        if(exponent == -1) // 处理-1
+             return 1/base;
         double result = powerWithRecursion(base, exponent >> 1);  // 右移一位相等于除2
-        // 结果处理
-        result *= result;
-         // 处理奇数
-        if((exponent & 1) == 1){  // 位运算：  0 & 1 == 0; 1 & 1 == 1
+        result *= result;// 结果处理
+        if((exponent & 1) == 1){  // 位运算：  0 & 1 == 0; 1 & 1 == 1  处理奇数
             result *= base;
         }
         return result;
