@@ -19,14 +19,12 @@ public class Test23 {
         }
     }
     public static void printFromToBottom(Node head){
-        if(head == null) {
-            return;
-        }
+        if(head == null)  return;
         LinkedList<Node> queue = new LinkedList<>();
-        queue.add(head);
-        Node cur = null;
+        queue.add(head);// 头结点
+//        Node cur = null;
         while(!queue.isEmpty()){
-            cur = queue.poll();
+            Node cur = queue.poll();
             System.out.print(cur.value+" ");
             if(cur.left != null){
                 queue.add(cur.left);

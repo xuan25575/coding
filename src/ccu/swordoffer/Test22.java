@@ -40,6 +40,22 @@ public class Test22 {
         return true;
     }
 
+    // 简化多了。
+    public boolean isPopOrder2(int [] pushA,int [] popA) {
+        if(pushA.length == 0 || popA.length == 0) return false;
+        Stack<Integer> s = new Stack<>();
+        int index = 0;//用于标识弹出序列的位置
+        for(int i=0;i<pushA.length;i++){
+            s.push(pushA[i]);
+            while(!s.isEmpty() && s.peek()==popA[index]){  //判断是不是弹出顺序。
+                s.pop();
+                index++;
+            }
+        }
+        return s.isEmpty();
+    }
+
+
     public static void main(String[] args) {
         int[] push = {1, 2, 3, 4, 5};
         int[] pop = {4, 5, 3, 2, 1};

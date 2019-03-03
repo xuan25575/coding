@@ -44,6 +44,29 @@ public class Test25 {
         path.remove(path.size()-1);
     }
 
+
+
+
+    private ArrayList<ArrayList<Integer>> listAll = new ArrayList<>(); // 所有路径
+    private ArrayList<Integer> list = new ArrayList<>(); // 一条路径
+    // 精简代码
+    public ArrayList<ArrayList<Integer>> findPath2(Node root,int target) {
+        if(root == null) return listAll;
+        list.add(root.value);
+        target-=root.value;
+        if(target==0 && root.left==null && root.right== null)
+             listAll.add(new ArrayList<>(list));
+        findPath2(root.left,target);
+        findPath2(root.right,target);
+        list.remove(list.size()-1);//移除最后一个元素啊，深度遍历完一条路径后要回退
+                                          //targrt在递归中就是他所在那层的值，下一层递归所改变的值不会递归到上一层，不需要加回去。
+        return listAll;
+    }
+
+
+
+
+
     public static void main(String[] args) {
         //            10
         //         /      \
@@ -61,7 +84,7 @@ public class Test25 {
         head.right = new Node();
         head.right.value = 12;
         findPath(head, 22);
-
-
+        ArrayList<ArrayList<Integer>>  result = new Test25().findPath2(head,22);
+        System.out.println(result);
     }
 }

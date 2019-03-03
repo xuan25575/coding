@@ -75,7 +75,7 @@ public class Test26 {
         while(cur != null){
             if(cur.sibling != null){
                 ComplexListNode cloneNode = cur.next;
-                cloneNode.sibling = cur.sibling.next;
+                cloneNode.sibling = cur.sibling.next;// 卡在这里 cur.sibling.next 就是cur.sibling的复制节点。
             }
             cur = cur.next.next;
         }

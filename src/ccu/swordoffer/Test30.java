@@ -8,11 +8,10 @@ package ccu.swordoffer;
 public class Test30 {
 
     public static int[] getLeastKthInArr(int[] arr,int  k){
-        if(arr == null || arr.length < 1 || k > arr.length || k <= 0){
+        if(arr == null || arr.length < 1 || k > arr.length || k <= 0)
             return null;
-        }
        int index =  partition2(arr,0,arr.length-1);
-        while(index != k-1){
+        while(index != k-1){ // 第k小的数从 1开始算的。
             if(index > k-1){
                 index = partition(arr,0,index-1);
             }else{
@@ -46,6 +45,7 @@ public class Test30 {
     }
 
 
+    // 思路更好。
     public static int partition2(int[] arr, int lo, int hi) {
         if (arr==null || arr.length<=0 || lo<0 || hi>=arr.length){
             throw new RuntimeException("输入有误");
@@ -54,10 +54,10 @@ public class Test30 {
         //以arr[hi]为基准 划分
         for (int i = lo; i < hi; i++) {
             if (arr[i] <= arr[hi]){
-                swap(arr, i, small++);
+                swap(arr, i, small++); //确定了： 先交换 在自增。
             }
         }
-        swap(arr, hi, small);
+        swap(arr, hi, small);// 确定partition值
         return small;
     }
     public static void swap(int[] arr, int i,int j){

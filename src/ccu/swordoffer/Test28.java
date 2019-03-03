@@ -14,27 +14,21 @@ package ccu.swordoffer;
  */
 public class Test28 {
 
+    // 回溯算法
     public static void permutation(String str){
-        if(str.isEmpty()){
-            return;
-        }
+        if(str.isEmpty()) return;
         char[] chars = str.toCharArray();
         permutation(chars,0);
 
     }
     public static void permutation(char[] chars,int begin){
-        if(chars.length == 0){
-            return;
-        }
         if(chars.length-1 == begin){
             System.out.print(new String(chars)+" ");
         }else{
             for (int i = begin; i < chars.length; i++) {
-                //if(isSwap(chars,begin,i)){
                 swap(chars,begin,i);
                 permutation(chars,begin+1);
                 swap(chars,begin,i); // 回溯
-            //    }
             }
         }
     }

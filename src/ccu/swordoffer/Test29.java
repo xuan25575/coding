@@ -19,11 +19,8 @@ public class Test29 {
      * @return
      */
     public static int solution1(int[] arr){
-        if(arr == null || arr.length == 0){
-            return -1;
-        }
-        int count = 0;
-        int result = 0;
+        if(arr == null || arr.length == 0) return -1;
+        int count = 0,result = 0;
         for (int i = 0; i < arr.length; i++) {
             if(count == 0){
                 result = arr[i];
@@ -34,25 +31,16 @@ public class Test29 {
                 count--;
             }
         }
-        if(!checkMoreThanHalf(arr,result)){
-            return -1;
-        }
+        if(!checkMoreThanHalf(arr,result)) return -1;
         return result;
     }
 
     public static boolean checkMoreThanHalf(int[] arr,int num){
-        if(arr == null || arr.length == 0){
-            return false;
-        }
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
-            if(num == arr[i]){
-                count++;
-            }
+            if(num == arr[i]) count++;
         }
-        if(count * 2 < arr.length){
-            return false;
-        }
+        if(count * 2 < arr.length) return false;
         return true;
     }
 
