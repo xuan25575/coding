@@ -19,6 +19,7 @@ public class Test37 {
      *  长度相同有公共结点，第一次就遍历到；没有公共结点，走到尾部NULL相遇，返回NULL
      *  长度不同有公共结点，第一遍差值就出来了，第二遍一起到公共结点；没有公共，一起到结尾NULL。
      *  只是适用链表无环
+     *   单向链表。
      * @param head1
      * @param head2
      * @return
@@ -50,23 +51,24 @@ public class Test37 {
         head1.next.next.next = new Node(4);
         head1.next.next.next.next = new Node(5);
         head1.next.next.next.next.next = new Node(6);
-        head1.next.next.next.next.next.next = new Node(7);
+//        head1.next.next.next.next.next.next = new Node(7);
         //head1.next.next.next.next.next.next = head1.next.next.next; // 7->4
         // 0->9->8->6->7->null
         Node head2 = new Node(0);
-        head2.next = new Node(9);
+        head2.next = new Node(3);
         head2.next.next = new Node(8);
-        head2.next.next.next = head1.next.next.next.next.next; // 8->6
+        head2.next = head1.next.next;
+//        head2.next.next.next = head1.next.next.next.next.next; // 8->6
 
         System.out.println(findFirstCommonNode(head1, head2).value);
 
-        // 0->9->8->6->4->5->6..
-        head2 = new Node(0);
-        head2.next = new Node(9);
-        head2.next.next = new Node(8);
-        head2.next.next.next = head1.next.next.next.next.next; // 8->6
-        // printLinkedList(head2);
-        System.out.println(findFirstCommonNode(head1, head2).value);
+//        // 0->9->8->6->4->5->6..
+//        head2 = new Node(0);
+//        head2.next = new Node(9);
+//        head2.next.next = new Node(8);
+//        head2.next.next.next = head1.next.next.next.next.next; // 8->6
+//        // printLinkedList(head2);
+//        System.out.println(findFirstCommonNode(head1, head2).value);
     }
 
 

@@ -29,7 +29,7 @@ public class Test41_1 {
                     list.add(i);
                 }
                 result.add(list);
-                p1++;
+                p1++;// 和在减小
             }else if(cur > s ){
                 p1++;
             }else{

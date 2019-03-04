@@ -27,7 +27,7 @@ public class Test42_1 {
     public static String leftRotateString2(String str,int n){
         int len = str.length();
         if(len == 0) return "";
-        n = n % len; // 求出需要 截取字母长度。。
+        n = n % len; // 求出需要 截取字母长度。。 n 可能大于 len
         str += str;
         return str.substring(n,len+n);
     }
@@ -36,7 +36,8 @@ public class Test42_1 {
         System.out.println(leftRotateString("abcdefg",2));
         System.out.println(leftRotateString2("abcdefg",2));
 
-//        System.out.println( 2 % 5);
+        System.out.println( 2 % 5);
+        System.out.println(2%1);
 
     }
 }

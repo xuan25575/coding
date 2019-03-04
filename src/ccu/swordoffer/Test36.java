@@ -20,12 +20,24 @@ package ccu.swordoffer;
  */
 public class Test36 {
 
+
+
+   /**
+    *1.在每次的操作中，数值的比较都是采用当前传入函数中第一项，也就是data；比较的结果都存放到copy中；也就意味着此时copy中是经过此次调用的结果。
+     2.从最底层返回时，进入了(start == end)的情形，data 和 copy 完全没有修改，此时copy和data还是一样的。
+     3.进入倒数第二层时，程序进入42行以后部分，copy是部分排序后的新数组，data是旧数组。----------注意这里都是传值的调用，数组都是直接修改的。----------
+       倒数第二层使用的copy其实是倒数第三层中的data,这就确保了倒数第三层进入42行以后时，数据比较使用的data是最新排序的数组。
+     4. 倒数第三层将排序的结果存入copy中。程序在倒数第四层进入42行后，使用的data数组为刚刚倒数第三层中的最新排序的copy.
+     5. 也就是说，在每次程序进入42行时，此时的data是最新的排序结果，copy是次新的结果。
+        在最后一次进入42行以后时，copy为完整排序后的结果，data是次新的结果。
+        然而这里第一个类内函数调用第二个函数时，data和copy的顺序没有改变，所以最后结果应该copy是完整排序的结果.data是差一步完成排序的结果。
+        以输入[7,5,6,4], 最后的结果copy[4,5,6,7], data[5,7,4,6].*/
     public static int inversePairsCore(int[] arr, int[] aux, int lo, int hi) {
         if (lo == hi) {
             return 0;
         }
         int mid = lo +(hi-lo)/2;
-        int left = inversePairsCore(aux, arr, lo, mid);
+        int left = inversePairsCore(aux, arr, lo, mid);// 保证代码 arr数组中 在递归中排好序。 传递只是引用。
         int right = inversePairsCore(aux, arr, mid + 1, hi);
         // 两个指针
         int p1 = mid; //前半部分的末尾

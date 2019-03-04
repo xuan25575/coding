@@ -94,6 +94,7 @@ public class Test32 {
 
     public static void main(String[] args) {
         System.out.println(solution2(5));
+        System.out.println(solution2(10));
         System.out.println(solution2(99));
         System.out.println(solution2(21345));
         System.out.println(solution1(5));

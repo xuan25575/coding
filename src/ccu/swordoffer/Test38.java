@@ -34,7 +34,7 @@ public class Test38 {
         if(lo > hi ) return -1 ;
         int mid = (hi+lo) >> 1;
         if(arr[mid] == k){
-            if((mid > 0 && k != arr[mid-1]) || mid == 0 ){
+            if((mid > 0 && k != arr[mid-1]) || mid == 0 ){// 判断是不是第一个k
                 return mid;
             }else{
                 hi = mid -1;
@@ -59,7 +59,7 @@ public class Test38 {
         if(lo > hi) return -1 ;
         int mid = (hi+lo)/2;
         if(arr[mid] == k){
-            if((mid < arr.length-1 && k != arr[mid+1]) || mid == arr.length-1 ){
+            if((mid < arr.length-1 && k != arr[mid+1]) || mid == arr.length-1 ){// 判断是不是最后一个k
                 return mid;
             }else{
                 lo = mid + 1;

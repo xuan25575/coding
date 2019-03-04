@@ -8,7 +8,7 @@ import ccu.swordoffer.Test39.*;
 public class Test39_1 {
 
     /**
-     *  基于上一次的方法
+     *  基于上一次的方法  不是最好的解
      * @param head
      * @return
      */
@@ -56,12 +56,13 @@ public class Test39_1 {
     }
 
 
+    // 解三 精简版代码  -1 只是一个标识 代表不平衡。
     public static int getDepth(Node root){
         if(root == null ) return 0;
         int left = getDepth(root.left);
-        if (left == -1) return -1; // 判断左子树 是不是平衡
+        if (left == -1) return -1; // 判断左子树 是不是平衡二叉树
         int right = getDepth(root.right);
-        if(right == -1) return  -1;// 判断右子树 是不是平衡
+        if(right == -1) return  -1;// 判断右子树 是不是平衡二叉树
         return Math.abs(left -right) > 1 ? -1 : Math.max(left,right)+1;
     }
 

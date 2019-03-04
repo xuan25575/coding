@@ -39,20 +39,19 @@ public class Test40 {
      * @return
      */
     public static int[] findNumAppearOnce2(int[] arr){
-        if(arr== null ||  arr.length < 2){
+        if(arr== null ||  arr.length < 2)
             return null;
-        }
         int sum = 0, index = 0;
         int[] result= new int[2];
         for (int i = 0; i < arr.length; i++) {
             sum ^= arr[i];
-        }
-        for (index=0; index < 32; index++) {
+        }// 剩余两个不一样的数的异或和，其余数都抵消了
+        for (index=0; index < 32; index++) { //不为0 则至少有一个位上位1   找到第一 1 出现位置
             if((sum & (1 << index))!= 0) break;
         }
         for (int i = 0; i < arr.length; i++) {
-            if((arr[i] & (1 << index)) != 0){
-//            if((arr[i] & (1 << index)) == 1){ 错误
+            if((arr[i] & (1 << index)) != 0){ // 将其拆分为两个数组 类似于数组a中只有一个数出现一次，其他数都出现了2次，找出这个数字 查看代码find1From2
+//            if((arr[i] & (1 << index)) == 1){ 错误 (arr[i] & (1 << index) 因为结果你不知道是多大。
                 result[0] ^= arr[i];
             }else{
                 result[1] ^= arr[i];
