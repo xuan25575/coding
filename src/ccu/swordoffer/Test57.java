@@ -26,7 +26,7 @@ public class Test57 {
             }
             return deleteDuplication(pNode); // 从第一个与当前结点不同的结点开始递归
         } else { // 当前结点不是重复结点
-            pHead.next = deleteDuplication(pHead.next); // 保留当前结点，从下一个结点开始递归
+            pHead.next = deleteDuplication(pHead.next); // 返回值给pHead.next表示deleteDuplication返回了一个无重复的节点，所以要让当前节点指向它。
             return pHead;
         }
     }

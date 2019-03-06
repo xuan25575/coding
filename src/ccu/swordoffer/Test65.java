@@ -18,7 +18,7 @@ import java.util.LinkedList;
 public class Test65 {
     public ArrayList<Integer> maxInWindows(int [] num, int size) {
         ArrayList<Integer> result = new ArrayList<>();
-        LinkedList<Integer> queue = new LinkedList<>(); // 双端队列
+        LinkedList<Integer> queue = new LinkedList<>(); // 双端队列 维护一个窗口最大值。
 
         if(num.length==0 || size <1 || size > num.length)
             return result;
@@ -27,10 +27,10 @@ public class Test65 {
                 queue.pollLast();
             }
             queue.addLast(i);
-            if(queue.peekFirst() == i-size){
+            if(queue.peekFirst() == i-size){ // i 数组在移动index  i-size == index;   例如：4-3=1  4所在的窗口（最左窗口2，3，4）没有包含下标1
                 queue.pollFirst();
             }
-            if( i>= size-1){
+            if( i>= size-1){ // 窗口数组长度： 数组长度len - size-1 个数。
                 result.add(num[queue.peekFirst()]);
             }
         }

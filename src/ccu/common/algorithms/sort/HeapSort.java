@@ -6,6 +6,9 @@ package ccu.common.algorithms.sort;
  *  父节点i的左子节点在位置 (2i+1)
  *  父节点i的右子节点在位置 (2i+2)
  *  子节点i的父节点在位置 floor((i-1)/2)
+ *  leftNo = parentNo*2+1
+ *  rightNo = parentNo*2+2
+ *  parentNo = (nodeNo-1)/2
  * 思路: 构建大根堆，交换首尾，堆Size减一 调整大根堆  循环遍历。
  */
 public class HeapSort {

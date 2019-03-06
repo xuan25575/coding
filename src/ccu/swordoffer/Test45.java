@@ -60,7 +60,7 @@ public class Test45 {
         }
         int last = 0;  // 从0 开始的。 如果是 因为求出的结果是数组中的下标，最终的编号还要加1
         for (int i = 2; i <=n ; i++) {
-            last = (last + m) % i;
+            last = (last + m) % i; // 两个人玩的从0开始  记录胜利者的下标，开始三个人的玩法。
         }
         return last;
     }
@@ -73,7 +73,7 @@ public class Test45 {
         if (n == 1) {
             return 0;
         }
-        return (lastRemaining(n-1, m ) + m ) % n;
+        return (lastRemaining(n-1, m ) + m ) % n; // 取模不会溢出。
     }
 
     public static void main(String[] args) {

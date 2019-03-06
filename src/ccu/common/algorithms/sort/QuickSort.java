@@ -17,8 +17,9 @@ public class QuickSort {
        if(arr == null || arr.length < 2){
            return;
        }
-       quickSort(arr,0,arr.length-1);
-    }
+//       quickSort(arr,0,arr.length-1);
+       quickSort2(arr,0,arr.length-1);
+   }
 
     /**
      *  快排
@@ -57,6 +58,28 @@ public class QuickSort {
         swap(arr,more,R); //由于 pivot 包含在右边集合中。做一次交换
         return new int[]{less+1,more};
     }
+
+
+
+    public static void quickSort2(int[] arr, int L,int R){
+        if(L < R){
+            swap(arr,L+(int)Math.random()*(R-L+1),R); //将基准值采用随机数赋值。
+            int p = partition2(arr, L, R);
+            quickSort(arr,L,p-1);
+            quickSort(arr,p+1,R);
+        }
+    }
+    public static int partition2(int[] arr, int lo, int hi) {
+        int small = lo;  // 边界
+        for (int i = lo; i < hi; i++) {
+            if (arr[i] <= arr[hi]) {
+                swap(arr, i, small++);
+            }
+        }
+        swap(arr, small, hi);
+        return small;
+    }
+
 
     public static void swap(int[] arr,int i,int j){
         int temp = arr[i];

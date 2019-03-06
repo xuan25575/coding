@@ -33,6 +33,19 @@ public class Test66 {
         }
         return false;
     }
+
+    /**
+     *
+     * @param matrix  想象的矩阵
+     * @param i 下标
+     * @param j  下标
+     * @param rows 行数
+     * @param cols 列数
+     * @param flag 标志
+     * @param str 字符数组
+     * @param k 字符数组的下标
+     * @return
+     */
     private boolean judge(char[] matrix,int i,int j,int rows,int cols,boolean[] flag,char[] str,int k){
         //先根据i和j计算匹配的第一个元素转为一维数组的位置
         int index = i * cols +j ;
