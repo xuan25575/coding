@@ -14,6 +14,8 @@ package ccu.common.algorithms.practice.class_1;
  *  5、这样比较完成后，如果两个数列中有个数列的数值有剩余，即其指针没有走到末尾，
  *     则将这个数列直接赋到辅助数组末尾即可。
  *  6、然后将辅助数组中的值拷贝回原数组中刚才合并的那两个数列的位置上。
+ *
+ *  可对比：  sword offer Test36
  */
 public class SmallSum {
 

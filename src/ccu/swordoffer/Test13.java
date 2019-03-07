@@ -40,7 +40,7 @@ public class Test13 {
               while(cur.next != deleteNode){
                   cur = cur.next;
               }
-              deleteNode = null;
+              deleteNode = null;//释放空间
               cur.next = null;
           }
         return head;

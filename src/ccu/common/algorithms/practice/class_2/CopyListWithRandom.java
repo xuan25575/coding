@@ -22,6 +22,8 @@ import java.util.HashMap;
 
 /**
  * 复制含有随机指针节点的链表
+ *
+ * 可参考  swordoffer Test26
  */
 public class CopyListWithRandom {
     public static  class  Node {

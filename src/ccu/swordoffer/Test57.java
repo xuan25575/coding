@@ -3,7 +3,7 @@ package ccu.swordoffer;
  * 题目：在一个排序的链表中，如何删除重复的结点？
  * 例如，1 -> 2 -> 3 -> 3 -> 4 -> 4 -> 5 -> null 中重复结点被删除之后，链表变成了：
  *      1 -> 2 -> 5 -> null
- *
+ *   类似： class2 RemoveRepeatValue.class
  */
 public class Test57 {
     public static class ListNode {

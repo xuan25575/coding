@@ -19,7 +19,8 @@ class  Singleton1{
 }
 
     /**
-     * 懒汉式
+     * 懒汉式  每次调用都要加锁，增加系统开销。
+     *
      */
 class Singleton2{
     private static  Singleton2  instance = null ;

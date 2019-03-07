@@ -2,7 +2,8 @@ package ccu.swordoffer;
 /**
  * 题目：一个链表中包含环，如何找出环的入口结点？
  *
- * /src/nowcoder/b_2nd_Season/bf160824/README.md：题目五：两个单链表相交的一系列问题的第一个小环节
+ * 题目五：两个单链表相交的一系列问题的第一个小环节
+ *  class_2 FindFirstIntersectNode 类
  * 【解】：双指针：
      F：一次走两步、S：一次走一步
      - 如果有环，则F与S一定会在环中相遇。

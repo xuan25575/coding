@@ -5,6 +5,8 @@ import java.util.Set;
 
 /**
  * 删除无序单链表中无序出现重复的单链表节点
+ * 1 -> 2 -> 3 -> 3 -> 6 ->4 -> 4 -> 5 -> null   删除之后变成  1 -> 2 -> 3 ->6 -> 4 -> 5 -> null
+ *  类似 ：  sword offer Test57
  */
 public class RemoveRepeatValue {
     public static class Node{

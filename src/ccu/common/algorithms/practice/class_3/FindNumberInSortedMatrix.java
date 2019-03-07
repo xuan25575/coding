@@ -13,7 +13,7 @@ package ccu.common.algorithms.practice.class_3;
      如果K为7，返回true；如果K为6，返回false。
      【要求】
      时间复杂度为O(N+M)，额外空间复杂度为O(1)。
- *
+ *     sword offer Test 3
  *   思路： 从右上到左下  或者  从左下到右上
  *
  */

@@ -35,36 +35,36 @@ public class ReversePartList {
         int len = 0;
         Node fPre = null; // from 位置的前一个节点
         Node tPos = null; // to 位置的 下一个节点
-        Node node1 = head;
+        Node n1 = head; 
         // find fPre node and tPost node and set it
-        while(node1 != null){
+        while(n1 != null){
             len++;
-            fPre = len == from -1 ? node1:fPre;
-            tPos = len == to + 1 ? node1:tPos;
-            node1 = node1.next;
+            fPre = len == from -1 ? n1:fPre;
+            tPos = len == to + 1 ? n1:tPos;
+            n1 = n1.next;
         }
         // validate  data is ok ?
         if(from >= to || from < 1 || to>len ){
             return head;
         }
         //update old list head node point to tPos node
-        node1 = fPre == null ? head : fPre.next; // 修改 node1 的值
-        Node node2 = node1.next;
-        node1.next = tPos;
+        n1 = fPre == null ? head : fPre.next; // 修改 n1 的值  from节点
+        n1.next = tPos;// 提前将反转链表下一个节点连好。
         // reverse list
+        Node n2 = n1.next;// n1 已经反转好了。 取n1的下一个节点。
         Node next= null; // sava next node
-        while(node2 != tPos){   // node2 != tPos 注意反转的边界。 而不是 node2 != null。
-            next = node2.next;
-            node2.next = node1;
-            node1 = node2;
-            node2 = next;
+        while(n2 != tPos){   // node2 != tPos 注意反转的边界。 而不是 node2 != null。
+            next = n2.next;
+            n2.next = n1;
+            n1 = n2;
+            n2 = next;
         }
   //     determine whether fPre node is null
         if(fPre != null){
-            fPre.next = node1; // 原有链表的前一个节点连接反转链表后的头结点
+            fPre.next = n1; // 原有链表的前一个节点连接反转链表后的头结点
             return head;  //  返回原有链表的头结点
         }
-        return node1; // node1 是反转链表的头结点。 这是由于 from指向的节点和head 节点重合
+        return n1; // n1 是反转链表的头结点。 这是由于 from指向的节点和head 节点重合
     }
 
     public static void printLinkedList(Node node){

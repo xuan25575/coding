@@ -44,7 +44,7 @@ public class RemoveValue {
     }
 
     /**
-     * 方法二
+     * 方法二   可参考  -- RemoveRepeatValue  Test57
      * @param head 头结点
      * @param num
      */

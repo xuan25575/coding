@@ -7,6 +7,7 @@ package ccu.swordoffer;
  * 从二维数组的右上角往左下角开始比较。 如果右上角大于该数，去除该列，如果小于该数 去除该行。
  * 【思路二】
  *  从二维数组的左下角往右下角开始比较。
+ *  ccu.common.algorithms.practice.class_3; FindNumberInSortedMatrix
  */
 public class Test03 {
     public static void main(String[] args) {

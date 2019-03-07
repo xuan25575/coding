@@ -49,7 +49,7 @@ public class MaximalRectangle {
                 int currentArea = (i -k -1)* height[j]; // i -k -1
                 maxArea = Math.max(currentArea,maxArea);
             }
-            stack.push(i);
+            stack.push(i); // 单调栈数栈顶到栈底依次 2，1,0，
         }
         //如果 最后栈还有值
         while(!stack.isEmpty()){

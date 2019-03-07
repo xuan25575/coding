@@ -9,6 +9,7 @@ package ccu.common.algorithms.practice.class_2;
  *    即可。
  *    要求：如果链表1的长度为N，链表2的长度为M，时间复杂度请达到
  *    O(N+M)，额外空间复杂度请达到O(1)。
+ *    可参考 ： sword offer Test37  Test56
  */
 public class FindFirstIntersectNode {
 
