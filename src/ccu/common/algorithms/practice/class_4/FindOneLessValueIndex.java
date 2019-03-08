@@ -26,11 +26,11 @@ public class FindOneLessValueIndex {
         int left = 1;
         int right = arr.length-2;
         int mid = 0;
-        while(left < right){
+        while(left < right){    //因为最上面两个判断没有满足。
             mid = (left+ right)/2;
-            if(arr[mid] > arr[mid-1]){
+            if(arr[mid] > arr[mid-1]){  // 说明在arr[left..mid-1] 存在局部最小。
                 right = mid-1;
-            }else if(arr[mid] > arr[mid+1]){
+            }else if(arr[mid] > arr[mid+1]){ // 说明在 arr[mid+1..right] 存在局部最小。
                 left = mid+1;
             }else{
                 return mid;

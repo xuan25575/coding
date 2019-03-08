@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_2;
 
 import java.util.Stack;
 
@@ -87,7 +87,8 @@ public class IsPalindromeList {
 
     /**
      * 如果链表长度为N，时间复杂度达到O(N)，额外空间复杂度达到O(1)。
-     * 涉及到链表反转
+     * 涉及到链表反转   扣细节比较多。
+     * 思路：快慢指正找到中点。将中点后的节点反转 反转后。两条链表同时指向公共中点，中点指向null， 比较两个链表，相等则是回文， 最后复原链表。
      * @param head 头结点
      * @return
      */

@@ -59,10 +59,13 @@ public class IOP {
 
     public static int getMaximizedCapital(int k,int m,int[] casts,int[] profits){
 
+        Node[] nodes = new Node[profits.length];  // 初始化 node数组。
+        for (int i = 0; i < profits.length; i++) {
+            nodes[i] = new Node(casts[i],profits[i]);
+        }
         PriorityQueue<Node>  minCostsHeap = new PriorityQueue<>(new MinCostHeapComparator());   // 小根堆
         PriorityQueue<Node>  maxProfitsHeap = new PriorityQueue<>(new MaxProfitHeapComparator()); // 大根堆
 
-        Node[] nodes = new Node[profits.length];  // 用来存储 资本和利润的数组
         for (int i = 0; i < nodes.length; i++) { // 将所有的项目放入
             minCostsHeap.add(nodes[i]);
         }

@@ -55,7 +55,7 @@ public class Islands {
         if(i<0 || i >= N || j<0 || j >= M || m[i][j] != 1 ){
             return;
         }
-        m[i][j] = 2; //注意
+        m[i][j] = 10; //注意 只是一个标识。标识这个位置走过了。
         infect(m,i-1,j,N,M);
         infect(m,i+1,j,N,M);
         infect(m,i,j-1,N,M);

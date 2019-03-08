@@ -1,4 +1,4 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_2;
 
 /**
  *  打印两个有序链表的公共部分

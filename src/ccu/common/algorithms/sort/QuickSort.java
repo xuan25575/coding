@@ -81,6 +81,21 @@ public class QuickSort {
     }
 
 
+     // 面试手写这 quick sort  省时间
+    public static void quickSort3(int[] arr, int lo, int hi) {
+        if (lo > hi) return;
+        int small = lo;
+        for (int i = lo; i < hi; i++) {
+            if (arr[i] < arr[hi]) {
+                swap(arr, i, small++);
+            }
+        }
+        swap(arr, small, hi);
+        quickSort3(arr, 0, small - 1);
+        quickSort3(arr, small + 1, hi);
+    }
+
+
     public static void swap(int[] arr,int i,int j){
         int temp = arr[i];
         arr[i] = arr[j];
@@ -113,6 +128,7 @@ public class QuickSort {
         int[] arr1 = generateRandomArray(100, 100);
         printArray(arr1);
         quickSort(arr1);
+       // quickSort3(arr1,0,arr1.length-1);
         printArray(arr1);
     }
 

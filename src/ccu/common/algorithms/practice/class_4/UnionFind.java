@@ -19,7 +19,7 @@ public class UnionFind {
     }
 
     public static class DisjointSets{
-        private HashMap<Node,Node>  fatherMap; // 用来存放父节点
+        private HashMap<Node,Node>  fatherMap; // 第一个用来存储节点 。泛型第二个用来存储用来存放父节点
         private HashMap<Node,Integer> rankMap; // 用来存放节点的层级
         public DisjointSets(){
             fatherMap = new HashMap<>();

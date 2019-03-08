@@ -55,11 +55,11 @@ public class ZigzagPrintMatrix {
      * @param fromUp 控制打印方向
      */
     public static void printLevel(int[][] matrix, int row1,int col1,int row2,int col2,boolean fromUp){
-        if(fromUp){  // 从下往上
+        if(fromUp){  // 从上往下
             while(row1 != row2+1){  //row1 <= row2
                 System.out.print(matrix[row1++][col1--]+" ");
             }
-        }else{    // 从上往下
+        }else{    // 从下往上
             while(row2 != row1-1){ // row2 >= row1
                 System.out.print(matrix[row2--][col2++]+" ");
             }

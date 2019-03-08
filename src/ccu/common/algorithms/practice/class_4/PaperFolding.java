@@ -32,9 +32,7 @@ public class PaperFolding {
      * @param down  桶过Boolean 控制 左右子树
      */
     public static void foldProcess(int i,int N ,boolean down){
-        if(i > N){
-            return;
-        }
+        if(i > N)  return;
         foldProcess(i+1,N,true);  // true  --> down  对应树左节点
         System.out.print(down ? "down ": "up " );
         foldProcess(i+1,N,false); // false  --> up  对应树右节点

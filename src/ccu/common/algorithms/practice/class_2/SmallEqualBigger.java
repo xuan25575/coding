@@ -1,7 +1,7 @@
-package ccu.common.algorithms.practice.class_3;
+package ccu.common.algorithms.practice.class_2;
 
 
-/*     【题目】
+/**     【题目】
         给定一个单向链表的头节点head，节点的值类型是整型，再给定一个整
         数pivot。实现一个调整链表的函数，将链表调整为左部分都是值小于
         pivot的节点，中间部分都是值等于pivot的节点，右部分都是值大于
@@ -94,7 +94,7 @@ public class SmallEqualBigger {
 
     /**
      *
-     *  题目进阶
+     *  题目进阶  让三部分保持一定得顺序。
      *  思路： 通过6个变量 ，将链表分成三部分
      *  然后连接起来，但是需要条件判断
      * @param head 头结点
