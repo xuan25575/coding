@@ -47,6 +47,8 @@ public class GetMinStack {
         }
     }
 
+
+    /**  Test 21  */
     public static class MyStack2{
         private Stack<Integer> stackMin;
         private Stack<Integer> stackData;

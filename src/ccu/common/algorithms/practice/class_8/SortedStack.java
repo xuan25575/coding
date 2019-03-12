@@ -11,10 +11,10 @@ public class SortedStack {
 
 
     public static void sortedStackByStack(Stack<Integer> stack){
-        Stack<Integer> help = new Stack(); // 从小到大
+        Stack<Integer> help = new Stack(); // 栈顶到栈底从小到大
         while(!stack.isEmpty()){
             int cur = stack.pop();
-            while(!help.isEmpty() && cur > help.peek()){
+            while(!help.isEmpty() && cur > help.peek()){  // 找到最大那个数。 压入栈底。
                 stack.push(help.pop());
             }
             help.push(cur);

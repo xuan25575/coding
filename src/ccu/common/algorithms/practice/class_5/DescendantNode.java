@@ -26,7 +26,7 @@ package ccu.common.algorithms.practice.class_5;
  *      （1）当前节点是它父节点的左子节点，那么它的下一个节点就是它的父节点。
  *      （2）当前节点是它父节点的右子节点，此时沿着指向父节点的指针一直向上遍历，直到找到一个是它父节点的左子节点的节点，
  *           如果这个节点存在，那么这个节点的父节点就是我们要找的下一个节点。 没找到则不存在
- *
+ *   Test 58
  */
 public class DescendantNode {
     public static class Node {
@@ -43,8 +43,11 @@ public class DescendantNode {
         if(node == null){
             return node;
         }
-        if(node.right != null){
-            return getLeftMost(node.right);
+        if(node.right != null){  // 取得右子树的最左节点。
+            Node n = node,right;
+            while(n.left != null) n = n.left;
+            return n;
+            //return getLeftMost(node.right);
         }else{
             Node parent = node.parent;
             while(parent != null && parent.left != node){ // 是否是：parent.right == node

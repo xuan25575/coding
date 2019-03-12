@@ -37,8 +37,8 @@ public class MaxHappy {
 
     // 设计一个结构 装载信息
     public static class ReturnType{
-        public int come_active; // 来的活跃度
-        public int not_come_active;  // 不来的的活跃度
+        public int come_active; // 来的总的活跃度
+        public int not_come_active;  // 不来的总的活跃度
         public ReturnType(int come_active,int not_come_active){
             this.come_active = come_active;
             this.not_come_active = not_come_active;

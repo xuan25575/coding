@@ -8,6 +8,7 @@ import java.util.HashMap;
  * 假设输入的前序遍历和中序遍历的结果中都不包含重复的数字。
  * 例如输入前序遍历序列{1， 2， 4， 7， 3， 5， 6， 8}和中序遍历序列{4， 7， 2， 1，5， 3， 8， 6}，
  * 则重建出二叉树并输出它的头结点。
+ *  Test6
  */
 public class RebuiltBinaryTree {
     public static class BinaryTreeNode{
@@ -54,7 +55,7 @@ public class RebuiltBinaryTree {
         }
         BinaryTreeNode head = new BinaryTreeNode(p[pi]);  // 设置头节点
         int index = map.get(p[pi]); // 取得中序遍历中根节点的下标
-        // 递归构建树  index-ni这个为树的左子树节点数量的个数
+        // 递归构建树  index-ni这个为树的左子树节点数量的个数   理解不了举例子。
         head.left = preIn(p,pi+1,pi+index-ni,n,ni,index-1,map);
         head.right = preIn(p,pi+index-ni+1,pj,n,index+1,nj,map);
         return head;

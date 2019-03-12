@@ -12,6 +12,7 @@ import java.util.Stack;
   */
 public class ReverseStackByRecursion {
 
+    // 将栈的栈底元素返回并移除
     public static int getAndRemoveLastElement(Stack<Integer> stack){
         int result = stack.pop();
         if(stack.isEmpty()){
@@ -23,9 +24,7 @@ public class ReverseStackByRecursion {
         }
     }
     public static void reverse(Stack<Integer> stack){
-        if(stack.isEmpty()){
-            return;
-        }
+        if(stack.isEmpty()) return;
         int i = getAndRemoveLastElement(stack);
         reverse(stack);
         stack.push(i);
