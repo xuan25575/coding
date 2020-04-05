@@ -60,7 +60,7 @@ public class MergeSort {
         while(p2 <= R){
             extra[i++] = arr[p2++];
         }
-        for( i=0;i<extra.length;i++){
+        for( i=0; i<extra.length; i++){
             arr[L+i] = extra[i];  //从L开始因为下标是从L开始的。
         }
     }

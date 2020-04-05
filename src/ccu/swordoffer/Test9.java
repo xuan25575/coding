@@ -66,9 +66,9 @@ public class Test9 {
 
 
     public static void main(String[] args) {
-//        int i = fibonacciRecursion(5);
-        long i1 = fibonacciUnRecur(4);
-        System.out.println(i1);
+        int i = fibonacciRecursion(2);
+//        long i1 = fibonacciUnRecur(4);
+        System.out.println(i);
     }
 
 }

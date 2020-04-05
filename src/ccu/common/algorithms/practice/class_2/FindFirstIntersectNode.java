@@ -51,6 +51,8 @@ public class FindFirstIntersectNode {
         if(head == null|| head.next == null || head.next.next == null){
             return null;
         }
+        // 很奇怪， n1 和 n2 同时走head 节点 ，但是n1=head，
+        // n2= head.next  相遇后会在 while(n1!= n2){ } 死循环。没懂。
         Node n1 = head.next; // - slow
         Node n2 = head.next.next; // -  fast
         while(n1 != n2){

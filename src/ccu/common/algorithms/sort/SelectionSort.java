@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class SelectionSort {
 
     /**
+     * 原地不稳定的
      * 选择排序
      * 它的工作原理如下。首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，
      * 然后，再从剩余未排序元素中继续寻找最小（大）元素，

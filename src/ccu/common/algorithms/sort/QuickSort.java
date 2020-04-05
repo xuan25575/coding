@@ -69,10 +69,18 @@ public class QuickSort {
             quickSort(arr,p+1,R);
         }
     }
+
+    /**
+     * 切分主要一个边界值 ，大于该数放一边，小与该数放一边。
+     * @param arr
+     * @param lo 起始
+     * @param hi 结束
+     * @return  返回切分的下标值
+     */
     public static int partition2(int[] arr, int lo, int hi) {
-        int small = lo;  // 边界
+        int small = lo;  // 边界，用来分
         for (int i = lo; i < hi; i++) {
-            if (arr[i] <= arr[hi]) {
+            if (arr[i] <= arr[hi]) { // arr[hi] 切分的边界值
                 swap(arr, i, small++);
             }
         }

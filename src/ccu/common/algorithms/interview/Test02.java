@@ -8,12 +8,20 @@ package ccu.common.algorithms.interview;
 public class Test02 {
 
     public static void main(String[] args) {
-        printPrimeNumber3();
-        System.out.println();
-        printPrimeNumber1();
-        System.out.println();
-        printPrimeNumber2();
-        System.out.println(2%2);
+//        printPrimeNumber3();
+//        System.out.println();
+//        printPrimeNumber1();
+//        System.out.println();
+//        printPrimeNumber2();
+//        System.out.println(2%2);
+        char a = (char)2+'0';
+        StringBuffer sb =  new StringBuffer();
+        sb.append(a);
+
+        System.out.println(sb.toString());
+
+
+        System.out.println(-5%5);
     }
 
     /**
