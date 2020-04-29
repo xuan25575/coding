@@ -14,19 +14,23 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-            Scanner in = new Scanner(System.in);
-            while(in.hasNext()){
-                int n = in.nextInt();
-                BigDecimal[] nums = new BigDecimal[n];
-                for(int i=0; i<n; i++){
-                    nums[i] = in.nextBigDecimal();
-                }
-                BigDecimal res  = new BigDecimal(0);
-                for (BigDecimal num : nums) {
-                    res =num.add(res);
-                }
-                System.out.println(res);
-            }
+//            Scanner in = new Scanner(System.in);
+//            while(in.hasNext()){
+//                int n = in.nextInt();
+//                BigDecimal[] nums = new BigDecimal[n];
+//                for(int i=0; i<n; i++){
+//                    nums[i] = in.nextBigDecimal();
+//                }
+//                BigDecimal res  = new BigDecimal(0);
+//                for (BigDecimal num : nums) {
+//                    res =num.add(res);
+//                }
+//                System.out.println(res);
+//            }
+
+
+
+        System.out.println(1<<32);
 
     }
 

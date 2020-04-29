@@ -1,5 +1,7 @@
 package ccu.swordoffer;
 
+import java.util.HashSet;
+
 /**
  * 题目：一个整型数组里除了两个数字之外，其他的数字都出现了两次，请写程序找出这两个只出现一次的数字。
  * 要求时间复杂度是 O(n)，空间复杂度是 O(1)。
@@ -11,6 +13,17 @@ package ccu.swordoffer;
  *    1.假如数组中只有1个数字只出现过一次，其他的都出现了两次，怎么找到它？
  *    所以我们可以从头到尾依次异或数组中的每一个数字，最终的异或结果刚好是只出现一次的那个数字。那些成对出现的两个数字刚好在异或中抵消了
  *
+ *
+ *  异或的性质
+ *  两个数字异或的结果a^b是将 a 和 b 的二进制每一位进行运算，得出的数字。 运算的逻辑是
+ *  如果同一位的数字相同则为 0，不同则为 1
+ *
+ *  异或的规律
+ *  任何数和本身异或则为0
+ *  任何数和 0 异或是本身
+ *  异或满足交换律。 即 a ^ b ^ c ，等价于 a ^ c ^ b
+ *
+
  */
 public class Test40 {
 
@@ -33,6 +46,52 @@ public class Test40 {
 
     }
 
+
+    /**
+     * 数组中数字出现的次数
+     *
+     * 1. 对所有数字异或,一样的数字抵消,出现一次的两个数字异或运算后必定不为 00;
+     * 2 .用 lowbitlowbit 得到一个二进制位最右边一位为1的数字 positionOne，也就是两者出现不等的地方，异或运算，相同为 00，不同为 11
+     * 3. positionOne 和数组的每个数字做与运算，等于 00 的分为一组，等于 positionOne 的分为一组，这同时也将两个不一样的数字分开了
+     *
+     * @param nums
+     * @return
+     */
+    public int[] singleNumbers(int[] nums) {
+        if(nums.length == 0) return null;
+        int  n = 0;
+        for (int num : nums) {
+            n ^= num;
+        }
+        int positionOne = n&(-n);
+        int[] res = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+
+            if((nums[i] & positionOne)==0){
+                res[0] ^= nums[i];
+            }else{
+                res[1] ^= nums[i];
+            }
+        }
+        return res;
+    }
+
+
+    /**
+     * 数组中数字出现的次数
+     * @param nums
+     * @return
+     */
+    public int[] singleNumbers2(int[] nums) {
+        HashSet<Integer> set  = new HashSet<>();
+        for (int num : nums) {
+            if(!set.add(num)){
+                set.remove(num);
+            }
+        }
+        return set.stream().mapToInt(Integer::intValue).toArray();
+    }
+
     /**
      * 精简版代码
      * @param arr
@@ -50,6 +109,7 @@ public class Test40 {
             if((sum & (1 << index))!= 0) break;
         }
         for (int i = 0; i < arr.length; i++) {
+           // if((arr[i] & (1 << index)) == 1)  错误在于 那个最低位不一定是最后一位。
             if((arr[i] & (1 << index)) != 0){ // 将其拆分为两个数组 类似于数组a中只有一个数出现一次，其他数都出现了2次，找出这个数字 查看代码find1From2
 //            if((arr[i] & (1 << index)) == 1){ 错误 (arr[i] & (1 << index) 因为结果你不知道是多大。
                 result[0] ^= arr[i];

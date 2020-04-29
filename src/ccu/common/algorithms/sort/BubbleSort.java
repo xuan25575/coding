@@ -27,6 +27,31 @@ public class BubbleSort {
         }
     }
 
+    /**
+     * 正向冒泡排序
+     * @param arr
+     */
+    public static void bubbleSort2(int[] arr) {
+        //一定要记住判断边界条件，很多人不注意这些细节，面试官看到你的代码的时候都懒得往下看，你的代码哪个项目敢往里面加？
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        //需要进行arr.length趟比较
+        for (int i = 0; i < arr.length - 1; i++) {
+            //第i趟比较
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                //开始进行比较，如果arr[j]比arr[j+1]的值大，那就交换位置
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+
+        }
+    }
+
+
     private  static void swap(int arr[] ,int a,int b){
         int temp = arr[a];
         arr[a] = arr[b];

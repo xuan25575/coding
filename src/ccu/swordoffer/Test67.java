@@ -9,12 +9,12 @@ package ccu.swordoffer;
  */
 public class Test67 {
     public int movingCount(int threshold, int rows, int cols) {
-        boolean[] flag = new boolean[rows*cols];
+        boolean[] flag = new boolean[rows*cols];//可以用一个二维数组
         return  movingCountCore(0,0,rows,cols,flag,threshold);
     }
 
     private int movingCountCore(int i ,int j,int rows,int cols,boolean[] flag,int threshold){
-        int index = i*cols+j;
+        int index = i*cols+j;//遍历 从第一列开始
         if(i<0 || j <0 || i>= rows || j >= cols || getSumNum(i) +getSumNum(j) > threshold || flag[index]) {
             return 0;
         }
@@ -28,7 +28,7 @@ public class Test67 {
     private int getSumNum(int i){
         int  sum = 0;
         while(i>0){
-            sum += i%10;
+            sum += i%10; // 先求最低位
             i = i/10;
         }
         return sum;

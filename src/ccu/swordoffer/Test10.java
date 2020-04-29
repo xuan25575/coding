@@ -38,9 +38,9 @@ public class Test10 {
      * @return
      */
     public static int numberOf12(int n){
-        int  flag = 1;  // 这个int flag 还是有误 0x80000000 ，0xFFFFFFFF 结果有误
+        int flag = 1;  // 这个int flag 还是有误 0x80000000 ，0xFFFFFFFF 结果有误
         int count= 0;
-        while(flag >= 1){
+        while(flag > 0){
             if((n & flag) > 0){  // 注意：这里是大于0.
                 count ++;
             }
@@ -49,15 +49,31 @@ public class Test10 {
         return count;
     }
 
+
+    public static int numberOf13(int n){
+        int count= 0;
+        while(n > 0){
+            if((n & 1) > 0){  // 注意：这里是大于0.
+                count ++;
+            }
+            n = n>>1;
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         int num = 10;
 
+        System.out.println(numberOf13(num));
         System.out.println(numberOf1(num));
         System.out.println(numberOf12(num));
+
+        System.out.println("----------------");
        System.out.println(numberOf1(0x80000000));
-//        System.out.println(numberOf12(0x80000000));  有误
+       System.out.println(numberOf13(0x80000000));
+       // System.out.println(numberOf12(0x80000000)); // 有误
         System.out.println(numberOf1(0xFFFFFFFF));
-//        System.out.println(numberOf12(0xFFFFFFFF));  有误
+        //System.out.println(numberOf12(0xFFFFFFFF));  //有误
 
        // System.out.println(numberOf12(0x7FFFFFFF));
 
