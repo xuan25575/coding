@@ -5,10 +5,15 @@ package ccu.leetCode;
  * @Date 2020/4/30 2:39 下午
  * @Description TODO
  */
-public class Solution {
+public class 合并两个有序链表 {
 
 
-
+    /**
+     * 实现 但是不是最优解
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if(l1 == null) return l2;
         if(l2 == null) return l1;
@@ -31,10 +36,17 @@ public class Solution {
         if(l2 ==null){
             pre.next = l1;
         }
+       // pre.next = l1 == null? l2: l1;
+
         return dummyHead.next;
     }
 
-
+    /**
+     * 递归
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
         if(l1 == null){
             return l2;

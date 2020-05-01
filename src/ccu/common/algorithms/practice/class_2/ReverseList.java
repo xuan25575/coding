@@ -31,6 +31,24 @@ public class ReverseList {
         return previous;
     }
 
+
+    /**
+     *  不修改头节点
+     * @param head
+     * @return
+     */
+    public static Node reverseList2(Node head){
+        Node pre = null;
+        Node cur = head;
+        while(head != null){
+            Node tempNext = head.next;
+            cur.next = pre; // reverse operation
+            pre = cur; // move
+            cur= tempNext;
+        }
+        return pre;
+    }
+
     public static class DoubleNode{
         public int value;
         public DoubleNode last; // 前一个节点
