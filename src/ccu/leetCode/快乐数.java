@@ -12,6 +12,7 @@ public class 快乐数 {
 
     /**
      * 求 85 = 8^2 + 5^2
+     * 85 = 8*8 + 5*5
      * @param n
      * @return
      */
@@ -27,6 +28,7 @@ public class 快乐数 {
 
     /**
      * 利用 hashset 去重。有环一定有 退出循环
+     * 要不等于1  要不会有环。
      * @param n
      * @return
      */

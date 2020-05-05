@@ -1,7 +1,10 @@
 package ccu.swordoffer;
 
+import com.sun.org.apache.bcel.internal.util.ClassQueue;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -18,37 +21,44 @@ public class Test61 {
     }
     // 非递归实现
     //队列LinkedList完成层序遍历，用count记录每层结点数目
-    ArrayList<ArrayList<Integer>> print2(TreeNode pRoot) {
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-        if(pRoot == null) return list;
-        Queue<TreeNode> layer = new LinkedList<>();// 关键是 队列LinkedList  完成层序遍历
-        ArrayList<Integer> layerList  = new ArrayList<>();
-        layer.add(pRoot);
-        int count =1,n =0;
-        while(!layer.isEmpty()){
-            TreeNode cur = layer.remove();
-            layerList.add(cur.val);
-            n++;
-            if(cur.left!= null) {
-                layer.add(cur.left);
+
+    /**
+     * 层序遍历  -- 队列实现
+     * @param pRoot
+     * @return
+     */
+    public List<List<Integer>> levelOrder(TreeNode pRoot) {
+
+        List<List<Integer>> levels = new ArrayList<>();
+        if(pRoot == null) return levels;
+        Queue<TreeNode> queue = new LinkedList<>();
+        //根节点入队。
+        queue.offer(pRoot);
+
+        while(!queue.isEmpty()){
+            List<Integer> list  = new ArrayList<>();
+            //每一层都是节点 queue.size 个
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = queue.poll();
+                list.add(cur.val);
+                System.out.println("层序遍历："+cur.val);
+                if(cur.left!= null) {
+                    queue.offer(cur.left);
+                }
+                if(cur.right !=null){
+                    queue.offer(cur.right);
+                }
             }
-            if(cur.right !=null){
-                layer.add(cur.right);
-            }
-            if(n == count ){
-                count = layer.size();// 记录下一层节点数量
-                n = 0;
-                list.add(layerList);
-                layerList = new ArrayList<>();
-            }
+            levels.add(list);
         }
-        return list;
+        return levels;
     }
 
 
 
     // 递归
-    ArrayList<ArrayList<Integer>> print1(TreeNode pRoot) {
+   public ArrayList<ArrayList<Integer>> print1(TreeNode pRoot) {
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         depth(pRoot,1,list);
         return list;

@@ -11,6 +11,11 @@ import java.util.HashSet;
 public class 无重复字符的最长子串 {
 
 
+    /**
+     * 使用hashMap
+     * @param s
+     * @return
+     */
 
     public int lengthOfLongestSubstring2(String s) {
         if (s.length()==0) return 0;
@@ -35,7 +40,7 @@ public class 无重复字符的最长子串 {
     /**
      * 滑动窗口
      * 左右指针
-     *
+     * HashSet
      * @param s
      * @return
      */
