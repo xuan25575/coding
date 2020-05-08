@@ -28,6 +28,11 @@ public class PreInPosTraversal {
         preTraversalRecursion(head.left);
         preTraversalRecursion(head.right);
     }
+
+    /**
+     * 中序遍历
+     * @param head
+     */
     public static void inTraversalRecursion(Node head){
         if(head == null){
             return;
